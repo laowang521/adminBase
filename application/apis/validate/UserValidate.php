@@ -15,7 +15,6 @@ class UserValidate extends Validate
         'user_login|账号'  => 'require|unique:user|regex:/^[1][3,4,5,7,8][0-9]{9}$/',
         'passwd|密码'  => 'require|chsDash|length:6,34',
         'head_img|上传头像'  => 'file|fileExt:jpg,png.gif',
-        'head_imgs|上传头像'  => 'require',
         'repasswd|确认密码'  => 'chsDash|length:6,34|confirm:passwd'
     ];
     /* name:管理员验证消息
@@ -50,6 +49,6 @@ class UserValidate extends Validate
         'get_user_info'  =>  ['id'],
         'save_user_info'  =>  ['id'],
         'upload_img_file_user'  =>  ['id','head_img'],
-        'upload_img_base64_user'  =>  ['id','head_img'],
+        'upload_img_base64_user'  =>  ['id','head_img'=>"require"],
     ];
 }

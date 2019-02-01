@@ -75,6 +75,25 @@ function upload_file_object($file){
 	return  $rs_url;
 }
 /* name:上传图片
+ * purpose: BASE64形式图片上传
+ * param1: base64 图片数据 
+ * return:  返回上传后保存的路径
+ * author:longdada
+ * write_time:2019/02/02 7:45
+ */
+function upload_file_base64($base64_data){
+	$base64=$base64_data;
+	$base64_image = str_replace(' ', '+', $base64);
+	//post的数据里面，加号会被替换为空格，需要重新替换回来，如果不是post的数据，则注释掉这一行
+	preg_match('/^(data:\s*image\/(\w+);base64,)/', $base64_image, $result);
+	$file_name=date("YmdHis").generate_random_str(3,52,8).'.'.$result[2];
+	$upload_url='./static/uploads/'. date("Ym")."/";
+	if(!is_dir($upload_url))mkdir($upload_url,0777,true);
+	//服务器文件存储路径
+	file_put_contents($upload_url.$file_name, base64_decode(str_replace($result[1], '', $base64_image)));
+	return str_replace('./', '/', $upload_url.$file_name);
+}
+/* name:上传图片
  * purpose: 文件对象形式图片上传
  * param1: 原图的url 
  * param2: 缩略图最大宽度 

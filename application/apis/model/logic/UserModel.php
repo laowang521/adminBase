@@ -394,27 +394,18 @@ class UserModel
         $post_data=input();
         $validate=validate('user');
         if($validate->scene('upload_img_base64_user')->check($post_data)){
-            $base64=$post_data("head_imgs");
-            $base64_image = str_replace(' ', '+', $base64);
-            //post的数据里面，加号会被替换为空格，需要重新替换回来，如果不是post的数据，则注释掉这一行
-            // if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $base64_image, $result)){
-            //     $file_name=date("YmdHis").generate_random_str(3,52,8).'.'.$result[2];
-            //     $upload_url='./static/uploads/'. date("Ym")."/";
-            //     chmod($upload_url,0777);
-            //     if(!is_dir($upload_url))mkdir($upload_url,0777,true);
-            //     //服务器文件存储路径
-            //     if (file_put_contents($upload_url.$file_name, base64_decode(str_replace($result[1], '', $base64_image)))){
-            //         $ret['code']=1;
-            //         $image_file = str_replace('./', '/', $image_file);
-            //         $ret['image']=$image_file;
-            //     }else{
-            //         $ret['code']=0;
-            //         $ret['msg']='图片上传失败！';
-            //     }
-            // }else{
-            //     $rs_arr['code']=0;
-            //     $rs_arr['msg']=lang("IMG_ERROR");
-            // }
+            $where['id']=$post_data['id'];
+            $rs_row=$this->user->where($where)->find();
+            if(!empty($rs_row['head_img'])&&file_exists(".".$rs_row['head_img'])){//如果原头像文件存在就删除文件
+                unlink(".".$rs_row['head_img']);
+            }
+            $img_url=upload_file_base64($post_data['head_img']);//上传文件
+            $thumb_url=image_thumb($img_url,400,400);//生成缩略图
+            $up_data['id']=$post_data['id'];
+            $up_data['head_img']=$thumb_url;
+            $this->user->allowField(true)->isUpdate(true)->save($up_data);
+            $rs_arr['code']=1;
+            $rs_arr['data']=$thumb_url;
         }else{
             $rs_arr['code']=0;
             $rs_arr['msg']=$validate->getError();
