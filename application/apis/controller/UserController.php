@@ -12,6 +12,7 @@ class UserController extends ApisBaseController
     {
         parent::_initialize();
         $this->user=model('service.User');
+        $this->address=model('service.UserAddress');
         $this->system=model('service.System');
     }
     /* name:验证手机号
@@ -133,6 +134,17 @@ class UserController extends ApisBaseController
     public function uploadUserImg()
     {
         $rs_data=$this->user->upload_img_base64_user();
+        return json($rs_data);
+    }
+    /* name:获取收货地址列表
+     * purpose: 根据用户ID获取用户列表
+     * return:  返回列表数据
+     * author:longdada
+     * write_time:2019/02/02 08:29
+     */
+    public function getAddressList()
+    {
+        $rs_data=$this->address->get_address_list();
         return json($rs_data);
     }
 }

@@ -32,11 +32,12 @@ CREATE TABLE `benben_admin`  (
   `mobile` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '电话',
   `role_id` int(8) NULL DEFAULT NULL COMMENT '角色ID',
   `shop_id` int(9) NULL DEFAULT 0 COMMENT '店铺ID',
-  `last_login_ip` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '上次登录IP',
+  `last_login_ip` varchar(200) CHARACTER SETutf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '上次登录IP',
+  
+  `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '头像',
   `last_login_time` int(11) NULL DEFAULT NULL COMMENT '上次登录时间',
   `add_time` int(11) NULL DEFAULT NULL COMMENT '注册时间',
   `update_time` int(11) NULL DEFAULT NULL COMMENT '更新时间',
-  `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '头像',
   `status` tinyint(1) NULL DEFAULT 1 COMMENT '1正常 2禁用',
   `introduction` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '个人简介',
   PRIMARY KEY (`id`) USING BTREE

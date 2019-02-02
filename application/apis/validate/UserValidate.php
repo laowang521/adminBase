@@ -3,8 +3,8 @@ namespace app\common\validate;
 use think\Validate;
 class UserValidate extends Validate
 {   
-    /* name:管理员验证规格
-     * purpose: 对管理员模型收到的数据进行验证
+    /* name:用户验证规格
+     * purpose: 对用户模型收到的数据进行验证
      * return:  无
      * author:longdada
      * write_time:2019/01/22 22:30
@@ -17,8 +17,8 @@ class UserValidate extends Validate
         'head_img|上传头像'  => 'file|fileExt:jpg,png.gif',
         'repasswd|确认密码'  => 'chsDash|length:6,34|confirm:passwd'
     ];
-    /* name:管理员验证消息
-     * purpose: 对管理员验证错误信息进行定制 
+    /* name:用户验证消息
+     * purpose: 对用户验证错误信息进行定制 
      * return:  无
      * author:longdada
      * write_time:2019/01/22 22:31
@@ -29,7 +29,7 @@ class UserValidate extends Validate
         'head_img.fileExt'=>'上传文件格式错误',
         'repasswd.confirm' => '确认密码和密码不一致'
     ];
-    /* name:管理员验证场景
+    /* name:用户验证场景
      * purpose: 按照不同的场景定义不同的验证规则更加灵活 
      * return:  无
      * author:longdada

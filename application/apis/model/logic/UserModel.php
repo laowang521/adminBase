@@ -11,6 +11,7 @@ class UserModel
     public function __construct()
     {
         $this->user=model('db.User');
+        $this->validates=validate('User');
     }
     /* name:验证手机号
      * purpose: 验证手机号是否合法
@@ -21,8 +22,7 @@ class UserModel
     public function validate_mobile()
     {
         $post_data=input();
-        $validate=validate('user');
-        if($validate->scene('validate_mobile')->check($post_data)){
+        if($this->validates->scene('validate_mobile')->check($post_data)){
             if($post_data['send_type']==1){
                 $validate_data=$validate->scene('validate_mobile_1')->check($post_data); 
             }else if($post_data['send_type']==2){
@@ -61,8 +61,7 @@ class UserModel
     public function send_sms()
     {
         $post_data=input();
-        $validate=validate('user');
-        if($validate->scene('send_sms')->check($post_data)){
+        if($this->validates->scene('send_sms')->check($post_data)){
             $send_code=generate_random_str(46,54,6);
             $rs_arr['code']=1;
             $rs_arr['data']=$send_code;
@@ -90,8 +89,7 @@ class UserModel
     public function register()
     {
         $post_data=input();
-        $validate=validate('user');
-        if($validate->scene('register')->check($post_data)){
+        if($this->validates->scene('register')->check($post_data)){
             $post_data['user_sn']=generate_random_str(2,42,4).generate_random_str(46,54,6);
             $post_data['mobile']=$post_data['user_login'];
             $pass_arr=generate_passwd($post_data['passwd']);
@@ -121,8 +119,7 @@ class UserModel
     public function passwd_login()
     {
         $post_data=input();
-        $validate=validate('user');
-        if($validate->scene('passwd_login')->check($post_data)){
+        if($this->validates->scene('passwd_login')->check($post_data)){
             $user_where['user_login']=$post_data['user_login'];
             $rs_row=$this->user->where($user_where)->find();
             if(empty($rs_row)){
@@ -158,8 +155,7 @@ class UserModel
     public function code_login()
     {
         $post_data=input();
-        $validate=validate('user');
-        if($validate->scene('code_login')->check($post_data)){
+        if($this->validates->scene('code_login')->check($post_data)){
             $user_where['user_login']=$post_data['user_login'];
             $rs_row=$this->user->where($user_where)->find();
             if(empty($rs_row)){
@@ -189,8 +185,7 @@ class UserModel
     public function forget_passwd()
     {
         $post_data=input();
-        $validate=validate('user');
-        if($validate->scene('forget_passwd')->check($post_data)){
+        if($this->validates->scene('forget_passwd')->check($post_data)){
             $user_where['user_login']=$post_data['user_login'];
             $rs_row=$this->user->where($user_where)->find();
             if(empty($rs_row)){
@@ -231,8 +226,7 @@ class UserModel
     public function bind_mobile()
     {
         $post_data=input();
-        $validate=validate('user');
-        if($validate->scene('bind_mobile')->check($post_data)){
+        if($this->validates->scene('bind_mobile')->check($post_data)){
             $rs_st=$this->user->allowField(true)->isUpdate(true)->save($post_data);
             if($rs_st!==false){
                 $rs_arr['code']=1;
@@ -256,8 +250,7 @@ class UserModel
     public function reset_passwd()
     {
         $post_data=input();
-        $validate=validate('user');
-        if($validate->scene('reset_passwd')->check($post_data)){
+        if($this->validates->scene('reset_passwd')->check($post_data)){
             $user_where['id']=$post_data['id'];
             $rs_row=$this->user->where($user_where)->find();
             if(empty($rs_row)){
@@ -298,8 +291,7 @@ class UserModel
     public function get_user_info()
     {
         $post_data=input();
-        $validate=validate('user');
-        if($validate->scene('get_user_info')->check($post_data)){
+        if($this->validates->scene('get_user_info')->check($post_data)){
             $user_where['id']=$post_data['id'];
             $rs_row=$this->user->where($user_where)->find();
             if(!empty($rs_row)){
@@ -325,8 +317,7 @@ class UserModel
     public function save_user_info()
     {
         $post_data=input();
-        $validate=validate('user');
-        if($validate->scene('save_user_info')->check($post_data)){
+        if($this->validates->scene('save_user_info')->check($post_data)){
             $where['id']=$post_data['id'];
             $rs_row=$this->user->where($where)->find();
             if(empty($rs_row)){
@@ -357,8 +348,7 @@ class UserModel
     public function upload_img_file_user()
     {
         $post_data=input();
-        $validate=validate('user');
-        if($validate->scene('upload_img_file_user')->check($post_data)){
+        if($this->validates->scene('upload_img_file_user')->check($post_data)){
             $where['id']=$post_data['id'];
             $rs_row=$this->user->where($where)->find();
             if(!empty($rs_row['head_img'])&&file_exists(".".$rs_row['head_img'])){//如果原头像文件存在就删除文件
@@ -392,8 +382,7 @@ class UserModel
     public function upload_img_base64_user()
     {
         $post_data=input();
-        $validate=validate('user');
-        if($validate->scene('upload_img_base64_user')->check($post_data)){
+        if($this->validates->scene('upload_img_base64_user')->check($post_data)){
             $where['id']=$post_data['id'];
             $rs_row=$this->user->where($where)->find();
             if(!empty($rs_row['head_img'])&&file_exists(".".$rs_row['head_img'])){//如果原头像文件存在就删除文件
