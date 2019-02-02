@@ -23,4 +23,14 @@ class UserAddressModel
     {
         return  $this->address-> get_address_list();
     }
+    /* name:添加单个收货地址
+     * purpose: 保存单个收货地址添加
+     * return:  返回添加结果
+     * author:longdada
+     * write_time:2019/02/02 22:34
+     */
+    public function save_address_add()
+    {
+        return  $this->address-> save_address_add();
+    }
 }

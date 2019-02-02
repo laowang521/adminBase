@@ -13,6 +13,7 @@ class UserController extends ApisBaseController
         parent::_initialize();
         $this->user=model('service.User');
         $this->address=model('service.UserAddress');
+        $this->region=model('service.Region');
         $this->system=model('service.System');
     }
     /* name:验证手机号
@@ -145,6 +146,28 @@ class UserController extends ApisBaseController
     public function getAddressList()
     {
         $rs_data=$this->address->get_address_list();
+        return json($rs_data);
+    }
+    /* name:添加单个收货地址
+     * purpose: 保存单个收货地址添加
+     * return:  返回添加结果
+     * author:longdada
+     * write_time:2019/02/02 22:34
+     */
+    public function saveAddressAdd()
+    {
+        $rs_data=$this->address->save_address_add();
+        return json($rs_data);
+    }
+    /* name:省市区三级联动接口
+     * purpose: 获取下级地区列表
+     * return:  返回地区列表
+     * author:longdada
+     * write_time:2019/02/02 23:39
+     */
+    public function getRegionList()
+    {
+        $rs_data=$this->region->get_region_list();
         return json($rs_data);
     }
 }

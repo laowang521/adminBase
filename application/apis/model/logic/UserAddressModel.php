@@ -26,14 +26,40 @@ class UserAddressModel
             $where['user_id']=$post_data['user_id'];
             $post_data['start']=isset($post_data['start'])&&!empty($post_data['start'])?$post_data['start']:0;
             $post_data['page_size']=isset($post_data['page_size'])&&!empty($post_data['page_size'])?$post_data['page_size']:6;
-            $rs_list=$this->address->where($where)->limit($post_data['start'],$post_data['page_size'])->order('id','desc')->selecxt();
-            if(！empty($rs_list)){
+            $rs_list=$this->address->where($where)->limit($post_data['start'],$post_data['page_size'])->order('id','desc')->select();
+            if(!empty($rs_list)){
                 $rs_arr['code']=0;
                 $rs_arr['msg']=lang("GET_SUCCESS");
                 $rs_arr['data']=$rs_list;
             }else{
                 $rs_arr['code']=0;
                 $rs_arr['msg']=lang("GET_ERROR");
+            }
+        }else{
+            $rs_arr['code']=0;
+            $rs_arr['msg']=$validate->getError();
+        }
+        return $rs_arr;
+    }
+    /* name:添加单个收货地址
+     * purpose: 保存单个收货地址添加
+     * return:  返回添加结果
+     * author:longdada
+     * write_time:2019/02/02 22:34
+     */
+    public function save_address_add()
+    {
+        $post_data=input();
+        $validate=validate('UserAddress');
+        if($validate->scene('save_address_add')->check($post_data)){
+            $post_data['status']=1;
+            $rs_st=$this->address->allowField(true)->isUpdate(false)->save($post_data);
+            if($rs_st!==false){
+                $rs_arr['code']=1;
+                $rs_arr['msg']=lang("SAVE_SUCCESS");
+            }else{
+                $rs_arr['code']=0;
+                $rs_arr['msg']=lang("SAVE_ERROR");
             }
         }else{
             $rs_arr['code']=0;

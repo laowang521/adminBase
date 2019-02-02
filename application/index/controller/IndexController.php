@@ -9,7 +9,7 @@ class IndexController extends Controller
     {
         parent::_initialize();
     }
-    public function IndexOp()
+    public function Index()
     {
        return "犇犇科技 棒棒哒";
     }
