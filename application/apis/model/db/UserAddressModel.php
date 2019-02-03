@@ -18,5 +18,35 @@ class UserAddressModel extends Model
     {
         parent::initialize();
     }
-   
+    /* name:根据省份ID获取省份名称
+     * purpose: 根据省份ID获取省份名称
+     * return:  省份名称
+     * author:longdada
+     * write_time:2019/02/03 07:53
+     */
+    public function getProvinceTextAttr($value,$data)
+    {
+        return  model('service.Region')->get_region_name($data['province']);
+    }
+    /* name:根据城市ID获取城市名称
+     * purpose: 根据城市ID获取城市名称
+     * return:  城市名称
+     * author:longdada
+     * write_time:2019/02/03 07:53
+     */
+    public function getCityTextAttr($value,$data)
+    {
+        var_dump($data['city']);
+        return  model('service.Region')->get_region_name($data['city']);
+    }
+    /* name:根据地区ID获取地区名称
+     * purpose: 根据地区ID获取地区名称
+     * return:  地区名称
+     * author:longdada
+     * write_time:2019/02/03 07:53
+     */
+    public function getDistrictTextAttr($value,$data)
+    {
+        return  model('service.Region')->get_region_name($data['district']);
+    }
 }

@@ -27,6 +27,11 @@ class UserAddressModel
             $post_data['start']=isset($post_data['start'])&&!empty($post_data['start'])?$post_data['start']:0;
             $post_data['page_size']=isset($post_data['page_size'])&&!empty($post_data['page_size'])?$post_data['page_size']:6;
             $rs_list=$this->address->where($where)->limit($post_data['start'],$post_data['page_size'])->order('id','desc')->select();
+            foreach($rs_list as &$ve){
+                $ve['province_text']=$ve->province_text;
+                $ve['city_text']=$ve->city_text;
+                $ve['district_text']=$ve->district_text;
+            }
             if(!empty($rs_list)){
                 $rs_arr['code']=0;
                 $rs_arr['msg']=lang("GET_SUCCESS");

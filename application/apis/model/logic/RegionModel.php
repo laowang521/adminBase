@@ -10,39 +10,46 @@ class RegionModel
      */
     public function __construct()
     {
-        $this->system=model('db.System');
+        $this->region=model('db.Region');
     }
-    /* name:生成apitoken
-     * purpose: 生成接口凭证
-     * return:  返回生成结果
+   /* name:省市区三级联动接口
+     * purpose: 获取下级地区列表
+     * return:  返回地区列表
      * author:longdada
-     * write_time:2019/01/22 21:51
+     * write_time:2019/02/03 07:10
      */
-    public function generate_api_token()
+    public function get_region_list()
     {
         $post_data=input();
-        $validate=validate('System');
-        if($validate->scene('generate_api_token')->check($post_data)){
-            $conf=config('token');
-            if($post_data['app_id']==$conf['app_id']&&$post_data['app_secret']==$conf['app_secret']){
-                $time=floor(time()/300);
-                $rand_str=generate_random_str(0,52,16);
-                $token=md5(MD5($rand_str.$conf['app_id'].$time.$rand_str.$conf['app_secret'].$conf['app_suffix']));
-                $rs_data['rand_str']=$rand_str;
-                $rs_data['time']=$time;
-                cache($token,$rs_data, 300);
-                $rs_arr['code']=1;
-                $rs_arr['data']=$rs_data;
-                $rs_arr['token']=$token;
+        $validate=validate('Region');
+        if($validate->scene('get_region_list')->check($post_data)){
+            $where['parent_id']=$post_data['parent_id'];
+            $region_list=$this->region->where($where)->select();
+            if(!empty($region_list)){
+                $rs_arr['code']=0;
+                $rs_arr['msg']=lang("GET_SUCCESS");
+                $rs_arr['data']=$region_list;
             }else{
                 $rs_arr['code']=0;
-                $rs_arr['msg']='appid或appsecret不正确';
+                $rs_arr['sql']=$this->region->getLastSql();
+                $rs_arr['msg']=lang("GET_ERROR");
             }
         }else{
             $rs_arr['code']=0;
             $rs_arr['msg']=$validate->getError();
         }
         return $rs_arr;
-        return false;
+    }
+    /* name:根据地区id返回地区名字
+     * purpose: 将地区ID转换为地区名字
+     * param1: 要转换的地区ID
+     * return:  返回地区名字
+     * author:longdada
+     * write_time:2019/02/03 07:30
+     */
+    public function get_region_name($region_id)
+    {
+        $where['region_id']=$region_id;
+        return $this->region->where($where)->value('region_name');
     }
 }

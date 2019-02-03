@@ -7,7 +7,7 @@ use think\Model;
 class RegionModel extends Model
 {
     //设置模型链接的表名(不带前缀)
-    protected $name = 'user';
+    protected $name = 'region';
     /* name:数据库层初始化方法
      * purpose: 调用父级模型的初始化方法
      * return:  无
