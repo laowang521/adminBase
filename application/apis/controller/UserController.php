@@ -138,7 +138,7 @@ class UserController extends ApisBaseController
         return json($rs_data);
     }
     /* name:获取收货地址列表
-     * purpose: 根据用户ID获取用户列表
+     * purpose: 根据用户ID获取用户收货地址列表
      * return:  返回列表数据
      * author:longdada
      * write_time:2019/02/02 08:29
@@ -146,6 +146,17 @@ class UserController extends ApisBaseController
     public function getAddressList()
     {
         $rs_data=$this->address->get_address_list();
+        return json($rs_data);
+    }
+    /* name:获取一行收货地址
+     * purpose: 根据用户ID获取用户收货地址
+     * return:  返回用户收货地址数据
+     * author:longdada
+     * write_time:2019/02/02 08:29
+     */
+    public function getAddressRow()
+    {
+        $rs_data=$this->address->get_address_row();
         return json($rs_data);
     }
     /* name:添加单个收货地址

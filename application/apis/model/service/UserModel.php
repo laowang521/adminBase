@@ -133,4 +133,27 @@ class UserModel
     {
         return  $this->user->upload_img_base64_user();
     }
+    /* name:获取用户id获取用户信息
+     * purpose: 获取用户id获取用户信息
+     * param1: 用户id
+     * return:  返回用户信息
+     * author:longdada
+     * write_time:2019/02/03 08:49
+     */
+    public function get_user_row($user_id)
+    {
+        return  $this->user->get_user_row($user_id);
+    }
+    /* name:设置用户默认收货地址
+     * purpose: 设计用户的默认收货地址
+     * param1: 用户id
+     * param1: 地址id
+     * return:  返回设置结果
+     * author:longdada
+     * write_time:2019/02/03 08:49
+     */
+    public function set_address_default($user_id,$address_id)
+    {
+        return  $this->user->set_address_default($user_id,$address_id);
+    }
 }

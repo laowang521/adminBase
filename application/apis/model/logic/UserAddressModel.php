@@ -27,15 +27,57 @@ class UserAddressModel
             $post_data['start']=isset($post_data['start'])&&!empty($post_data['start'])?$post_data['start']:0;
             $post_data['page_size']=isset($post_data['page_size'])&&!empty($post_data['page_size'])?$post_data['page_size']:6;
             $rs_list=$this->address->where($where)->limit($post_data['start'],$post_data['page_size'])->order('id','desc')->select();
+            $user=model('service.User')->get_user_row($post_data['user_id']);
             foreach($rs_list as &$ve){
+                if($user['data']['address_id']==$ve['id']){
+                    $ve['is_default']=1;
+                }else{
+                    $ve['is_default']=0;
+                }
                 $ve['province_text']=$ve->province_text;
                 $ve['city_text']=$ve->city_text;
                 $ve['district_text']=$ve->district_text;
             }
             if(!empty($rs_list)){
-                $rs_arr['code']=0;
+                $rs_arr['code']=1;
                 $rs_arr['msg']=lang("GET_SUCCESS");
                 $rs_arr['data']=$rs_list;
+            }else{
+                $rs_arr['code']=0;
+                $rs_arr['msg']=lang("GET_ERROR");
+            }
+        }else{
+            $rs_arr['code']=0;
+            $rs_arr['msg']=$validate->getError();
+        }
+        return $rs_arr;
+    }
+    /* name:获取一行收货地址
+     * purpose: 根据用户ID获取用户收货地址
+     * return:  返回用户收货地址数据
+     * author:longdada
+     * write_time:2019/02/02 08:29
+     */
+    public function get_address_row()
+    {
+        $post_data=input();
+        $validate=validate('UserAddress');
+        if($validate->scene('get_address_row')->check($post_data)){
+            $where['id']=$post_data['id'];
+            $rs_row=$this->address->where($where)->find();
+            if(!empty($rs_row)){
+                $user=model('service.User')->get_user_row($rs_row['user_id']);
+                if($user['data']['address_id']==$rs_row['id']){
+                    $rs_row['is_default']=1;
+                }else{
+                    $rs_row['is_default']=0;
+                }
+                $rs_row['province_text']=$rs_row->province_text;
+                $rs_row['city_text']=$rs_row->city_text;
+                $rs_row['district_text']=$rs_row->district_text;
+                $rs_arr['code']=1;
+                $rs_arr['msg']=lang("GET_SUCCESS");
+                $rs_arr['data']=$rs_row;
             }else{
                 $rs_arr['code']=0;
                 $rs_arr['msg']=lang("GET_ERROR");
@@ -60,6 +102,9 @@ class UserAddressModel
             $post_data['status']=1;
             $rs_st=$this->address->allowField(true)->isUpdate(false)->save($post_data);
             if($rs_st!==false){
+                if($post_data['is_default']==1){
+                    model('service.user')->set_address_default($post_data['user_id'],$this->address->id);
+                }
                 $rs_arr['code']=1;
                 $rs_arr['msg']=lang("SAVE_SUCCESS");
             }else{

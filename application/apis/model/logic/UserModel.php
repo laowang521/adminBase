@@ -401,4 +401,46 @@ class UserModel
         }
         return $rs_arr;
     }
+    /* name:获取用户id获取用户信息
+     * purpose: 获取用户id获取用户信息
+     * param1: 用户id
+     * return:  返回用户信息set_address_default
+     * author:longdada
+     * write_time:2019/02/03 08:49
+     */
+    public function get_user_row($user_id)
+    {
+        $where['id']=$user_id;
+        $rs_row=$this->user->where($where)->find();
+        if(!empty($rs_row)){
+            $rs_arr['code']=1;
+            $rs_arr['msg']=lang("GET_SUCCESS");
+            $rs_arr['data']=$rs_row;
+        }else{
+            $rs_arr['code']=0;
+            $rs_arr['msg']=lang("GET_ERROR");
+        }
+        return $rs_arr;
+    }
+     /* name:设置用户默认收货地址
+     * purpose: 设计用户的默认收货地址
+     * param1: 用户id
+     * param1: 地址id
+     * return:  返回设置结果
+     * author:longdada
+     * write_time:2019/02/03 08:49
+     */
+    public function set_address_default($user_id,$address_id)
+    {
+        $up_data['id']=$user_id;
+        $up_data['address_id']=$address_id;
+        $rs_st=$this->user->allowField(true)->isUpdate(true)->save($up_data);
+        if($rs_st!==false){
+            $rs_arr['code']=1;
+            $rs_arr['msg']=lang("SAVE_SUCCESS");
+        }else{
+            $rs_arr['code']=0;
+            $rs_arr['msg']=lang("SAVE_ERROR");
+        }
+    }
 }

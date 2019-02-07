@@ -23,6 +23,16 @@ class UserAddressModel
     {
         return  $this->address-> get_address_list();
     }
+    /* name:获取一行收货地址
+     * purpose: 根据用户ID获取用户收货地址
+     * return:  返回用户收货地址数据
+     * author:longdada
+     * write_time:2019/02/02 08:29
+     */
+    public function get_address_row()
+    {
+        return  $this->address-> get_address_row();
+    }
     /* name:添加单个收货地址
      * purpose: 保存单个收货地址添加
      * return:  返回添加结果
