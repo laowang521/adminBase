@@ -42,6 +42,9 @@ class UserAddressModel
                 }
                 $rs_arr['code']=1;
                 $rs_arr['msg']=lang("GET_SUCCESS");
+                $rs_arr['count']=$this->address->where($where)->count();
+                $rs_arr['start']=$post_data['start'];
+                $rs_arr['page_size']=$post_data['page_size'];
                 $rs_arr['data']=$rs_list;
             }else{
                 $rs_arr['code']=0;

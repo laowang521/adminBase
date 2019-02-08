@@ -42,8 +42,14 @@ return [
     'PASSWD_ERROR' => '密码错误',
     'NOT_REGISTER' => '您还没注册',
     'VALIDATE_CODE_ERROR' => '验证码错误',
-    /********其他**********/
+    /********其他*****DO_COLLECT*****/
     'NOT_USER_INFO'  => '未找到用户信息',
     'NOT_USER_FILE'  => '请选择上传文件',
     'IMG_ERROR'  => '上传图片格式错误',
+    'DO_FOLLOW'  => '已经关注过,请勿重复关注',
+    'NOT_FOLLOW'  => '还没有关注过,无法取消',
+    'DO_COLLECT'  => '已经收藏过,请勿重复收藏',
+    'NOT_COLLECT'  => '还没有收藏过,无法取消',
+    'DO_COLLECT'  => '浏览记录已存在,请勿重复收藏',
+    'NOT_COLLECT'  => '还没有收藏过,无法取消',
 ];

@@ -23,4 +23,24 @@ class UserFollowModel
     {
         return $this->user_follow->get_follow_list();
     }
+    /* name:添加关注
+     * purpose: 保存添加关注
+     * return:  返回关注结果
+     * author:longdada
+     * write_time:2019/02/08 14:17
+     */
+    public function save_follow_add()
+    {
+        return $this->user_follow->save_follow_add();
+    }
+    /* name:取消关注
+     * purpose: 保存取消关注
+     * return:  返回取消关注结果
+     * author:longdada
+     * write_time:2019/02/08 16:40
+     */
+    public function save_follow_del()
+    {
+        return $this->user_follow->save_follow_del();
+    }
 }

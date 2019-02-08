@@ -4,10 +4,10 @@ namespace app\apis\model\db;
 
 use think\Model;
 
-class UserFollowModel extends Model
+class UserCollectModel extends Model
 {
     //设置模型链接的表名(不带前缀)
-    protected $name = 'user_follow';
+    protected $name = 'user_collect';
     /* name:数据库层初始化方法
      * purpose: 调用父级模型的初始化方法
      * return:  无

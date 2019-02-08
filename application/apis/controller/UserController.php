@@ -15,8 +15,25 @@ class UserController extends ApisBaseController
         $this->address=model('service.UserAddress');
         $this->user_msg=model('service.UserMsg');
         $this->user_follow=model('service.UserFollow');
+        $this->user_collect=model('service.UserCollect');
+        $this->user_browse=model('service.UserBrowse');
+        $this->user_feedback=model('service.UserFeedback');
         $this->region=model('service.Region');
         $this->system=model('service.System');
+    }
+    /* name:获取APP系统版本号
+     * purpose: 获取APP系统版本号用于更新
+     * return:  返回版本号结果是否需要进行APK更新
+     * author:longdada
+     * write_time:2019/02/08 20:11
+     */
+    public function getSystemVersion()
+    {
+        $rs_data['code']=1;
+        $rs_arr['version']='1.000';
+        $rs_arr['is_update_apk']=0;
+        $rs_data['data']=$rs_arr;
+        return json($rs_data);
     }
     /* name:验证手机号
      * purpose: 验证手机号是否合法
@@ -249,7 +266,7 @@ class UserController extends ApisBaseController
         $rs_data=$this->user_msg->get_system_msg_del();
         return json($rs_data);
     }
-     /* name:我的关注列表
+    /* name:我的关注列表
      * purpose: 获取我关注的店铺,商铺,文章,用户列表
      * return:  返回列表数据
      * author:longdada
@@ -258,6 +275,105 @@ class UserController extends ApisBaseController
     public function getFollowList()
     {
         $rs_data=$this->user_follow->get_follow_list();
+        return json($rs_data);
+    }
+    /* name:添加关注
+     * purpose: 保存添加关注
+     * return:  返回关注结果
+     * author:longdada
+     * write_time:2019/02/08 14:17
+     */
+    public function saveFollowAdd()
+    {
+        $rs_data=$this->user_follow->save_follow_add();
+        return json($rs_data);
+    }
+    /* name:取消关注
+     * purpose: 保存取消关注
+     * return:  返回取消关注结果
+     * author:longdada
+     * write_time:2019/02/08 16:40
+     */
+    public function saveFollowDel()
+    {
+        $rs_data=$this->user_follow->save_follow_del();
+        return json($rs_data);
+    }
+    /* name:我的收藏列表
+     * purpose: 获取我收藏的店铺,商铺,文章,用户列表
+     * return:  返回列表数据
+     * author:longdada
+     * write_time:2019/02/08 17:10
+     */
+    public function getCollectList()
+    {
+        $rs_data=$this->user_collect->get_collect_list();
+        return json($rs_data);
+    }
+    /* name:添加收藏
+     * purpose: 保存我收藏的店铺,商铺,文章,用户
+     * return:  返回保存结果
+     * author:longdada
+     * write_time:2019/02/08 17:20
+     */
+    public function saveCollectAdd()
+    {
+        $rs_data=$this->user_collect->save_collect_add();
+        return json($rs_data);
+    }
+    /* name:删除收藏
+     * purpose: 保存我收藏的店铺,商铺,文章,用户
+     * return:  返回保存结果
+     * author:longdada
+     * write_time:2019/02/08 17:20
+     */
+    public function saveCollectDel()
+    {
+        $rs_data=$this->user_collect->save_collect_del();
+        return json($rs_data);
+    }
+    /* name:我的收藏列表
+     * purpose: 获取我收藏的店铺,商铺,文章,用户列表
+     * return:  返回列表数据
+     * author:longdada
+     * write_time:2019/02/08 17:10
+     */
+    public function getBrowseList()
+    {
+        $rs_data=$this->user_browse->get_browse_list();
+        return json($rs_data);
+    }
+    /* name:添加浏览记录
+     * purpose: 保存我浏览的商品,文章
+     * return:  返回保存结果
+     * author:longdada
+     * write_time:2019/02/08 17:20
+     */
+    public function saveBrowseAdd()
+    {
+        $rs_data=$this->user_browse->save_browse_add();
+        return json($rs_data);
+    }
+    /* name:删除收藏
+     * purpose: 保存我收藏的店铺,商铺,文章,用户
+     * return:  返回保存结果
+     * author:longdada
+     * write_time:2019/02/08 17:20
+     */
+    public function saveBrowseDel()
+    {
+        $rs_data=$this->user_browse->save_browse_del();
+        return json($rs_data);
+    }
+    /* name:保存建议反馈
+     * purpose: 保存建议反馈
+     * return:  返回保存结果
+     * author:longdada
+     * write_time:2019/02/08 21:20
+     */
+    public function saveFeedback()
+    {
+        $rs_data=$this->user_feedback->save_feedback();
         return json($rs_data);
     }
 }

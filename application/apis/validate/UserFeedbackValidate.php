@@ -1,7 +1,7 @@
 <?php
 namespace app\apis\validate;
 use think\Validate;
-class UserFollowValidate extends Validate
+class UserFeedbackValidate extends Validate
 {   
     /* name:用户收货地址验证规则
      * purpose: 对用户的收货地址进行验证
@@ -11,8 +11,7 @@ class UserFollowValidate extends Validate
      */
     protected $rule = [
         'user_id|用户ID'  => 'require|number|gt:0',
-        'type|类型'  => 'require|in:1,2,3,4',
-        'follow_id|被关注ID'  => 'require|number|gt:0',
+        'content|建议内容'  => 'require',
     ];
     /* name:自定义验证规则错误信息
      * purpose: 自定义验证规则错误信息
@@ -29,8 +28,6 @@ class UserFollowValidate extends Validate
      * write_time:2019/02/02 18:09
      */
     protected $scene = [
-        'get_follow_list'  =>  ['user_id','type'],
-        'save_follow_add'  =>  ['user_id','type','follow_id'],
-        'save_follow_del'  =>  ['user_id','type','follow_id']
+        'save_feedback'  =>  ['user_id','content']
     ];
 }
