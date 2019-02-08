@@ -11,6 +11,7 @@ class RegionModel
     public function __construct()
     {
         $this->region=model('db.Region');
+        $this->validates=validate('Region');
     }
    /* name:省市区三级联动接口
      * purpose: 获取下级地区列表
@@ -21,10 +22,9 @@ class RegionModel
     public function get_region_list()
     {
         $post_data=input();
-        $validate=validate('Region');
-        if($validate->scene('get_region_list')->check($post_data)){
+        if($this->validates->scene('get_region_list')->check($post_data)){
             $where['parent_id']=$post_data['parent_id'];
-            $region_list=$this->region->where($where)->select();
+            $region_list=$this->region->where($where)->field('region_id,region_name')->select();
             if(!empty($region_list)){
                 $rs_arr['code']=0;
                 $rs_arr['msg']=lang("GET_SUCCESS");
@@ -36,7 +36,7 @@ class RegionModel
             }
         }else{
             $rs_arr['code']=0;
-            $rs_arr['msg']=$validate->getError();
+            $rs_arr['msg']=$this->validates->getError();
         }
         return $rs_arr;
     }

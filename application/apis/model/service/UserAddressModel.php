@@ -43,4 +43,24 @@ class UserAddressModel
     {
         return  $this->address-> save_address_add();
     }
+    /* name:编辑单个收货地址
+     * purpose: 保存单个收货地址编辑
+     * return:  返回编辑结果
+     * author:longdada
+     * write_time:2019/02/08 08:45
+     */
+    public function save_address_edit()
+    {
+        return  $this->address-> save_address_edit();
+    }
+    /* name:删除收货地址
+     * purpose: 删除收货地址,单个或者批量
+     * return:  返回删除结果
+     * author:longdada
+     * write_time:2019/02/08 09:12
+     */
+    public function save_address_del()
+    {
+        return  $this->address-> save_address_del();
+    }
 }

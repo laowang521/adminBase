@@ -20,28 +20,17 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 -- Table structure for benben_admin
 -- ----------------------------
-DROP TABLE IF EXISTS `benben_admin`;
-CREATE TABLE `benben_admin`  (
+DROP TABLE IF EXISTS `benben_user_follow`;
+CREATE TABLE `benben_user_follow`  (
   `id` int(20) NOT NULL AUTO_INCREMENT,
-  `login_token` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '登陆令牌',
-  `time_out` int(11) NULL DEFAULT NULL COMMENT '登陆令牌过期时间',
-  `login` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '登录名',
-  `password` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '登陆密码',
-  `password_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '登陆密码追加随机字符串',
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '姓名',
-  `mobile` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '电话',
-  `role_id` int(8) NULL DEFAULT NULL COMMENT '角色ID',
-  `shop_id` int(9) NULL DEFAULT 0 COMMENT '店铺ID',
-  `last_login_ip` varchar(200) CHARACTER SETutf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '上次登录IP',
-  
-  `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '头像',
-  `last_login_time` int(11) NULL DEFAULT NULL COMMENT '上次登录时间',
-  `add_time` int(11) NULL DEFAULT NULL COMMENT '注册时间',
+  `user_id` int(11) NULL DEFAULT NULL COMMENT '用户ID',
+  `type` int(5) NULL DEFAULT NULL COMMENT '关注内容类型',
+  `follow_id` text  COMMENT '被关注ID',
+  `add_time` int(11) NULL DEFAULT NULL COMMENT '添加时间',
   `update_time` int(11) NULL DEFAULT NULL COMMENT '更新时间',
-  `status` tinyint(1) NULL DEFAULT 1 COMMENT '1正常 2禁用',
-  `introduction` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '个人简介',
+  `status` int(2) NULL DEFAULT NULL COMMENT '状态',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of benben_admin

@@ -24,11 +24,11 @@ class UserModel
         $post_data=input();
         if($this->validates->scene('validate_mobile')->check($post_data)){
             if($post_data['send_type']==1){
-                $validate_data=$validate->scene('validate_mobile_1')->check($post_data); 
+                $this->validates_data=$this->validates->scene('validate_mobile_1')->check($post_data); 
             }else if($post_data['send_type']==2){
-                $validate_data=$validate->scene('validate_mobile_2')->check($post_data);     
+                $this->validates_data=$this->validates->scene('validate_mobile_2')->check($post_data);     
             }
-            if($validate_data){
+            if($this->validates_data){
                 if($post_data['send_type']==2){
                     $rs_row=$this->user->where(['user_login'=>$post_data['user_login']])->find();
                     if(!empty($rs_row)){
@@ -44,11 +44,11 @@ class UserModel
                 }
             }else{
                 $rs_arr['code']=0;
-                $rs_arr['msg']=$validate->getError();
+                $rs_arr['msg']=$this->validates->getError();
             }
         }else{
             $rs_arr['code']=0;
-            $rs_arr['msg']=$validate->getError();
+            $rs_arr['msg']=$this->validates->getError();
         }
         return $rs_arr;
     }
@@ -76,7 +76,7 @@ class UserModel
             // }
         }else{
             $rs_arr['code']=0;
-            $rs_arr['msg']=$validate->getError();
+            $rs_arr['msg']=$this->validates->getError();
         }
         return $rs_arr;
     }
@@ -106,7 +106,7 @@ class UserModel
             }
         }else{
             $rs_arr['code']=0;
-            $rs_arr['msg']=$validate->getError();
+            $rs_arr['msg']=$this->validates->getError();
         }
         return $rs_arr;
     }
@@ -142,7 +142,7 @@ class UserModel
             }
         }else{
             $rs_arr['code']=0;
-            $rs_arr['msg']=$validate->getError();
+            $rs_arr['msg']=$this->validates->getError();
         }
         return $rs_arr;
     }
@@ -172,7 +172,7 @@ class UserModel
             }
         }else{
             $rs_arr['code']=0;
-            $rs_arr['msg']=$validate->getError();
+            $rs_arr['msg']=$this->validates->getError();
         }
         return $rs_arr;
     }
@@ -213,7 +213,7 @@ class UserModel
             }
         }else{
             $rs_arr['code']=0;
-            $rs_arr['msg']=$validate->getError();
+            $rs_arr['msg']=$this->validates->getError();
         }
         return $rs_arr;
     }
@@ -237,7 +237,7 @@ class UserModel
             }
         }else{
             $rs_arr['code']=0;
-            $rs_arr['msg']=$validate->getError();
+            $rs_arr['msg']=$this->validates->getError();
         }
         return $rs_arr;
     }
@@ -278,7 +278,7 @@ class UserModel
             }
         }else{
             $rs_arr['code']=0;
-            $rs_arr['msg']=$validate->getError();
+            $rs_arr['msg']=$this->validates->getError();
         }
         return $rs_arr;
     }
@@ -304,7 +304,7 @@ class UserModel
             }
         }else{
             $rs_arr['code']=0;
-            $rs_arr['msg']=$validate->getError();
+            $rs_arr['msg']=$this->validates->getError();
         }
         return $rs_arr;
     }
@@ -335,7 +335,7 @@ class UserModel
             }
         }else{
             $rs_arr['code']=0;
-            $rs_arr['msg']=$validate->getError();
+            $rs_arr['msg']=$this->validates->getError();
         }
         return $rs_arr;
     }
@@ -369,7 +369,7 @@ class UserModel
             }
         }else{
             $rs_arr['code']=0;
-            $rs_arr['msg']=$validate->getError();
+            $rs_arr['msg']=$this->validates->getError();
         }
         return $rs_arr;
     }
@@ -397,7 +397,7 @@ class UserModel
             $rs_arr['data']=$thumb_url;
         }else{
             $rs_arr['code']=0;
-            $rs_arr['msg']=$validate->getError();
+            $rs_arr['msg']=$this->validates->getError();
         }
         return $rs_arr;
     }
@@ -425,7 +425,7 @@ class UserModel
      /* name:设置用户默认收货地址
      * purpose: 设计用户的默认收货地址
      * param1: 用户id
-     * param1: 地址id
+     * param2: 地址id
      * return:  返回设置结果
      * author:longdada
      * write_time:2019/02/03 08:49
@@ -442,5 +442,29 @@ class UserModel
             $rs_arr['code']=0;
             $rs_arr['msg']=lang("SAVE_ERROR");
         }
+    }
+    /* name:设置用户默认收货地址
+     * purpose: 用户在收货地址列表页设置默认收货地址
+     * return:  返回设置结果
+     * author:longdada
+     * write_time:2019/02/03 09:32
+     */
+    public function user_set_address_default()
+    {
+        $post_data=input();
+        if($this->validates->scene('user_set_address_default')->check($post_data)){
+            $rs_st=$this->user->allowField(true)->isUpdate(true)->save($post_data);
+            if($rs_st!==false){
+                $rs_arr['code']=1;
+                $rs_arr['msg']=lang("SET_SUCCESS");
+            }else{
+                $rs_arr['code']=0;
+                $rs_arr['msg']=lang("SET_ERROR");
+            }
+        }else{
+            $rs_arr['code']=0;
+            $rs_arr['msg']=$this->validates->getError();
+        }
+        return $rs_arr;
     }
 }

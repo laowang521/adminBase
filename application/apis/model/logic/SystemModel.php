@@ -11,6 +11,7 @@ class SystemModel
     public function __construct()
     {
         $this->system=model('db.System');
+        $this->validates=validate('System');
     }
     /* name:生成apitoken
      * purpose: 生成接口凭证
@@ -21,8 +22,7 @@ class SystemModel
     public function generate_api_token()
     {
         $post_data=input();
-        $validate=validate('System');
-        if($validate->scene('generate_api_token')->check($post_data)){
+        if($this->validates->scene('generate_api_token')->check($post_data)){
             $conf=config('token');
             if($post_data['app_id']==$conf['app_id']&&$post_data['app_secret']==$conf['app_secret']){
                 $time=floor(time()/300);
@@ -40,7 +40,7 @@ class SystemModel
             }
         }else{
             $rs_arr['code']=0;
-            $rs_arr['msg']=$validate->getError();
+            $rs_arr['msg']=$this->validates->getError();
         }
         return $rs_arr;
         return false;

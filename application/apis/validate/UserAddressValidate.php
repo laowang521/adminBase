@@ -14,7 +14,7 @@ class UserAddressValidate extends Validate
         'user_id|用户ID'  => 'require|number|gt:0',
         'name|姓名'  => 'require|chsAlpha',
         'mobile|联系电话'  => 'require|regex:/^[1][3,4,5,7,8][0-9]{9}$/',
-        'Province|省份'  => 'require|number|gt:0',
+        'province|省份'  => 'require|number|gt:0',
         'city|城市'  => 'require|number|gt:0',
         'district|县区'  => 'require|number|gt:0',
         'is_default|是否默认'  => 'require|in:0,1',
@@ -39,7 +39,9 @@ class UserAddressValidate extends Validate
      */
     protected $scene = [
         'get_address_list'  =>  ['user_id'],
-        'save_address_add'  =>  ['user_id','name','mobile','Province','city','district','address'],
+        'save_address_add'  =>  ['user_id','name','mobile','province','city','district','address','is_default'],
         'get_address_row'  =>  ['id'],
+        'save_address_edit'  =>  ['id','user_id','name','mobile','province','city','district','address','is_default'],
+        'save_address_del'  =>  ['id'],
     ];
 }

@@ -145,9 +145,9 @@ class UserModel
         return  $this->user->get_user_row($user_id);
     }
     /* name:设置用户默认收货地址
-     * purpose: 设计用户的默认收货地址
+     * purpose: 设置用户的默认收货地址
      * param1: 用户id
-     * param1: 地址id
+     * param2: 地址id
      * return:  返回设置结果
      * author:longdada
      * write_time:2019/02/03 08:49
@@ -155,5 +155,15 @@ class UserModel
     public function set_address_default($user_id,$address_id)
     {
         return  $this->user->set_address_default($user_id,$address_id);
+    }
+    /* name:设置用户默认收货地址
+     * purpose: 用户在收货地址列表页设置默认收货地址
+     * return:  返回设置结果
+     * author:longdada
+     * write_time:2019/02/03 08:49
+     */
+    public function user_set_address_default()
+    {
+        return  $this->user->user_set_address_default();
     }
 }

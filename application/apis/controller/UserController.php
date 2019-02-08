@@ -13,6 +13,8 @@ class UserController extends ApisBaseController
         parent::_initialize();
         $this->user=model('service.User');
         $this->address=model('service.UserAddress');
+        $this->user_msg=model('service.UserMsg');
+        $this->user_follow=model('service.UserFollow');
         $this->region=model('service.Region');
         $this->system=model('service.System');
     }
@@ -179,6 +181,83 @@ class UserController extends ApisBaseController
     public function getRegionList()
     {
         $rs_data=$this->region->get_region_list();
+        return json($rs_data);
+    }
+    /* name:编辑单个收货地址
+     * purpose: 保存单个收货地址编辑
+     * return:  返回编辑结果
+     * author:longdada
+     * write_time:2019/02/08 08:45
+     */
+    public function saveAddressEdit()
+    {
+        $rs_data=$this->address->save_address_edit();
+        return json($rs_data);
+    }
+    /* name:删除收货地址
+     * purpose: 删除收货地址
+     * return:  返回删除结果
+     * author:longdada
+     * write_time:2019/02/08 09:10
+     */
+    public function saveAddressDel()
+    {
+        $rs_data=$this->address->save_address_del();
+        return json($rs_data);
+    }
+    /* name:设置默认收货地址
+     * purpose: 设置默认收货地址
+     * return:  返回设置结果
+     * author:longdada
+     * write_time:2019/02/08 09:20
+     */
+    public function setAddressDefault()
+    {
+        $rs_data=$this->user->user_set_address_default();
+        return json($rs_data);
+    }
+    /* name:获取系统消息列表
+     * purpose: 获取系统消息列表
+     * return:  返回列表记录
+     * author:longdada
+     * write_time:2019/02/08 10:20
+     */
+    public function getSystemMsgList()
+    {
+        $rs_data=$this->user_msg->get_system_msg_list();
+        return json($rs_data);
+    }
+    /* name:获取系统消息详情
+     * purpose: 获取某一条系统消息的详情
+     * return:  返回一条记录
+     * author:longdada
+     * write_time:2019/02/08 10:20
+     */
+    public function getSystemMsgDetails()
+    {
+        $rs_data=$this->user_msg->get_system_msg_details();
+        return json($rs_data);
+    }
+    /* name:系统消息删除
+     * purpose: 系统消息单个或批量删除
+     * return:  返回删除结果
+     * author:longdada
+     * write_time:2019/02/08 10:20
+     */
+    public function getSystemMsgDel()
+    {
+        $rs_data=$this->user_msg->get_system_msg_del();
+        return json($rs_data);
+    }
+     /* name:我的关注列表
+     * purpose: 获取我关注的店铺,商铺,文章,用户列表
+     * return:  返回列表数据
+     * author:longdada
+     * write_time:2019/02/08 12:10
+     */
+    public function getFollowList()
+    {
+        $rs_data=$this->user_follow->get_follow_list();
         return json($rs_data);
     }
 }
