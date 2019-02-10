@@ -17,3 +17,4 @@ FTP密码：base123456
 数据库密码：base123456
 ************base64转换网站***********************
 http://imgbase64.duoshitong.com/
+systemctl vsftpd startlocal_enable=YES
