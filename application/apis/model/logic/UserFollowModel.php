@@ -70,10 +70,10 @@ class UserFollowModel
                 $rs_st=$this->user_follow->allowField(true)->isUpdate(false)->save($post_data);
                 if($rs_st!==false){
                     $rs_arr['code']=1;
-                    $rs_arr['msg']=lang("SAVE_SUCCESS");
+                    $rs_arr['msg']=lang("FOLLOW_SUCCESS");
                 }else{
                     $rs_arr['code']=0;
-                    $rs_arr['msg']=lang("SAVE_ERROR");
+                    $rs_arr['msg']=lang("FOLLOW_ERROR");
                 }
             }
         }else{

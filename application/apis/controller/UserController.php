@@ -12,6 +12,7 @@ class UserController extends ApisBaseController
     {
         parent::_initialize();
         $this->user=model('service.User');
+        $this->coupons=model('service.Coupons');
         $this->address=model('service.UserAddress');
         $this->user_msg=model('service.UserMsg');
         $this->user_follow=model('service.UserFollow');
@@ -20,6 +21,7 @@ class UserController extends ApisBaseController
         $this->user_feedback=model('service.UserFeedback');
         $this->user_sign=model('service.UserSign');
         $this->user_change=model('service.UserChange');
+        $this->user_coupons=model('service.UserCoupons');
         $this->region=model('service.Region');
         $this->system=model('service.System');
     }
@@ -413,7 +415,7 @@ class UserController extends ApisBaseController
         return json($rs_data);
     }
     /* name:获取用户账号总余额
-     * purpose: 保存会员签到记录
+     * purpose: 获取用户当前余额
      * return:  返回用户账号总余额
      * author:longdada
      * write_time:2019/02/10 09:15
@@ -421,6 +423,17 @@ class UserController extends ApisBaseController
     public function getUserMoneyCount()
     {
         $rs_data=$this->user->get_user_money_count();
+        return json($rs_data);
+    }
+    /* name:获取用户账号总积分
+     * purpose: 获取用户当前积分
+     * return:  返回用户账号总积分 
+     * author:longdada
+     * write_time:2019/02/10 18:15
+     */
+    public function getUserScoreCount()
+    {
+        $rs_data=$this->user->get_user_score_count();
         return json($rs_data);
     }
     /* name:账户余额充值
@@ -443,6 +456,50 @@ class UserController extends ApisBaseController
     public function saveUserMoneyConfirm()
     {
         $rs_data=$this->user_change->save_user_money_confirm();
+        return json($rs_data);
+    }
+    /* name:提现申请
+     * purpose: 保存用户提现申请
+     * return:  返回保存结果
+     * author:longdada
+     * write_time:2019/02/10 18:55
+     */
+    public function saveUserMoneyWithdraw()
+    {
+        $rs_data=$this->user_change->save_user_money_withdraw();
+        return json($rs_data);
+    }
+    /* name:账户余额明细
+     * purpose: 获取余额明细列表
+     * return:  返回列表数据结果
+     * author:longdada
+     * write_time:2019/02/10 20:05
+     */
+    public function getUserMoneyLog()
+    {
+        $rs_data=$this->user_change->get_user_money_log();
+        return json($rs_data);
+    }
+    /* name:账户积分明细
+     * purpose: 获取积分明细列表
+     * return:  返回列表数据结果
+     * author:longdada
+     * write_time:2019/02/10 20:05
+     */
+    public function getUserScoreLog()
+    {
+        $rs_data=$this->user_change->get_user_score_log();
+        return json($rs_data);
+    }
+    /* name:获取用户优惠券列表
+     * purpose: 获取用户拥有的优惠券列表
+     * return:  返回列表数据结果
+     * author:longdada
+     * write_time:2019/02/10 20:37
+     */
+    public function getCouponsList()
+    {
+        $rs_data=$this->user_coupons->get_coupons_list();
         return json($rs_data);
     }
 }

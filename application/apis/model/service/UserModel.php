@@ -167,7 +167,7 @@ class UserModel
         return  $this->user->user_set_address_default();
     }
     /* name:获取用户账号总余额
-     * purpose: 保存会员签到记录
+     * purpose: 获取用户当前余额
      * return:  返回用户账号总余额
      * author:longdada
      * write_time:2019/02/10 09:15
@@ -175,5 +175,25 @@ class UserModel
     public function get_user_money_count()
     {
         return $this->user->get_user_money_count();
+    }
+    /* name:获取用户账号总积分
+     * purpose: 获取用户当前积分
+     * return:  返回用户账号总积分 
+     * author:longdada
+     * write_time:2019/02/10 18:15
+     */
+    public function get_user_score_count()
+    {
+        return $this->user->get_user_score_count();
+    }
+    /* name:保存用户信息更新
+     * purpose: 保存会员签到记录
+     * return:  返回用户账号总余额
+     * author:longdada
+     * write_time:2019/02/10 09:15
+     */
+    public function save_user_update($up_data)
+    {
+        return $this->user->save_user_update($up_data);
     }
 }

@@ -204,10 +204,10 @@ class UserModel
                     $rs_st=$this->user->allowField(true)->isUpdate(true)->save($up_data);
                     if($rs_st!==false){
                         $rs_arr['code']=1;
-                        $rs_arr['msg']=lang("SAVE_SUCCESS");
+                        $rs_arr['msg']=lang("SUB_SUCCESS");
                     }else{
                         $rs_arr['code']=0;
-                        $rs_arr['msg']=lang("SAVE_ERROR");
+                        $rs_arr['msg']=lang("SUB_ERROR");
                     }
                 }
             }
@@ -230,10 +230,10 @@ class UserModel
             $rs_st=$this->user->allowField(true)->isUpdate(true)->save($post_data);
             if($rs_st!==false){
                 $rs_arr['code']=1;
-                $rs_arr['msg']=lang("SAVE_SUCCESS");
+                $rs_arr['msg']=lang("SUB_SUCCESS");
             }else{
                 $rs_arr['code']=0;
-                $rs_arr['msg']=lang("SAVE_ERROR");
+                $rs_arr['msg']=lang("SUB_ERROR");
             }
         }else{
             $rs_arr['code']=0;
@@ -269,10 +269,10 @@ class UserModel
                     $rs_st=$this->user->allowField(true)->isUpdate(true)->save($up_data);
                     if($rs_st!==false){
                         $rs_arr['code']=1;
-                        $rs_arr['msg']=lang("SAVE_SUCCESS");
+                        $rs_arr['msg']=lang("SUB_SUCCESS");
                     }else{
                         $rs_arr['code']=0;
-                        $rs_arr['msg']=lang("SAVE_ERROR");
+                        $rs_arr['msg']=lang("SUB_ERROR");
                     }
                 }
             }
@@ -327,10 +327,10 @@ class UserModel
                 $rs_st=$this->user->allowField(true)->isUpdate(true)->save($post_data);
                 if(!empty($rs_st)){
                     $rs_arr['code']=1;
-                    $rs_arr['msg']=lang("SAVE_SUCCESS");
+                    $rs_arr['msg']=lang("SUB_SUCCESS");
                 }else{
                     $rs_arr['code']=0;
-                    $rs_arr['msg']=lang("SAVE_ERROR");
+                    $rs_arr['msg']=lang("SUB_ERROR");
                 }
             }
         }else{
@@ -437,10 +437,10 @@ class UserModel
         $rs_st=$this->user->allowField(true)->isUpdate(true)->save($up_data);
         if($rs_st!==false){
             $rs_arr['code']=1;
-            $rs_arr['msg']=lang("SAVE_SUCCESS");
+            $rs_arr['msg']=lang("SUB_SUCCESS");
         }else{
             $rs_arr['code']=0;
-            $rs_arr['msg']=lang("SAVE_ERROR");
+            $rs_arr['msg']=lang("SUB_ERROR");
         }
     }
     /* name:设置用户默认收货地址
@@ -467,8 +467,8 @@ class UserModel
         }
         return $rs_arr;
     }
-     /* name:获取用户账号总余额
-     * purpose: 保存会员签到记录
+    /* name:获取用户账号总余额
+     * purpose: 获取用户当前余额
      * return:  返回用户账号总余额
      * author:longdada
      * write_time:2019/02/10 09:15
@@ -492,4 +492,48 @@ class UserModel
         }
         return $rs_arr;
     }
+    /* name:获取用户账号总积分
+     * purpose: 获取用户当前积分
+     * return:  返回用户账号总积分 
+     * author:longdada
+     * write_time:2019/02/10 18:15
+     */
+    public function get_user_score_count()
+    {
+        $post_data=input();
+        if($this->validates->scene('get_user_score_count')->check($post_data)){
+            $where['id']=$post_data['id'];
+            $rs_row=$this->user->where($where)->find();
+            if(empty($rs_row)){
+                $rs_arr['code']=0;
+                $rs_arr['msg']=lang("NOT_USER_INFO");
+            }else{
+                $rs_arr['code']=1;
+                $rs_arr['data']=$rs_row['score'];
+            }
+        }else{
+            $rs_arr['code']=0;
+            $rs_arr['msg']=$this->validates->getError();
+        }
+        return $rs_arr;
+    }
+    /* name:保存用户信息更新
+     * purpose: 后台程序更新用户信息接口
+     * return:  返回更新状态
+     * author:longdada
+     * write_time:2019/02/10 09:15
+     */
+    public function save_user_update($up_data)
+    {
+        $rs_st=$this->user->allowField(true)->isUpdate(true)->save($up_data);
+        if($rs_st!==false){
+            $rs_arr['code']=1;
+            $rs_arr['msg']=lang("SAVE_SUCCESS");
+        }else{
+            $rs_arr['code']=0;
+            $rs_arr['msg']=lang("SAVE_ERROR");
+        }
+        return $rs_arr;
+    }
+
 }

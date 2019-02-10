@@ -37,9 +37,22 @@ return [
     /********删除*********/
     'DEL_SUCCESS'  => '删除成功',
     'DEL_ERROR' => '删除失败',
+    /********提交*********/
+    'SUB_SUCCESS'  => '提交成功',
+    'SUB_ERROR' => '提交失败',
     /********发送*********/
     'SEND_SUCCESS'  => '发送成功',
     'SEND_ERROR' => '发送失败',
+    /********关注*********/
+    'FOLLOW_SUCCESS'  => '发送成功',
+    'FOLLOW_ERROR' => '发送失败',
+    'DO_FOLLOW'  => '已经关注过,请勿重复关注',
+    'NOT_FOLLOW'  => '还没有关注过,无法取消',
+    /********浏览*********/
+    'NOT_BROWSE'  => '未找到对应浏览记录',
+    /********提现*********/
+    'WITHDRAW'  => '提现成功',
+    'NOT_WITHDRAW' => '余额不足不能提现',
     /********登陆**********/
     'LOGIN_SUCCESS'  => '登陆成功',
     'PASSWD_ERROR' => '密码错误',
@@ -49,12 +62,9 @@ return [
     'NOT_USER_INFO'  => '未找到用户信息',
     'NOT_USER_FILE'  => '请选择上传文件',
     'IMG_ERROR'  => '上传图片格式错误',
-    'DO_FOLLOW'  => '已经关注过,请勿重复关注',
-    'NOT_FOLLOW'  => '还没有关注过,无法取消',
     'DO_COLLECT'  => '已经收藏过,请勿重复收藏',
     'NOT_COLLECT'  => '还没有收藏过,无法取消',
-    'NOT_BROWSE'  => '未找到对应浏览记录',
     'ALREADY_SIGN'  => '今天已经签到过了，请勿重复签到',
     'NOT_PAY_INFO'  => '未找到对应的支付信息，不能确认支付',
-    'RECHARGE'  => '充值',
+    'RECHARGE'  => '充值成功',
 ];

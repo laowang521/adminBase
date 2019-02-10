@@ -33,4 +33,34 @@ class UserChangeModel
     {
         return $this->user_change->save_user_money_confirm();
     }
+    /* name:提现申请
+     * purpose: 保存用户提现申请
+     * return:  返回保存结果
+     * author:longdada
+     * write_time:2019/02/10 18:55
+     */
+    public function save_user_money_withdraw()
+    {
+        return $this->user_change->save_user_money_withdraw();
+    }
+    /* name:账户余额明细
+     * purpose: 获取余额明细列表
+     * return:  返回列表数据结果
+     * author:longdada
+     * write_time:2019/02/10 20:05
+     */
+    public function get_user_money_log()
+    {
+        return $this->user_change->get_user_money_log();
+    }
+    /* name:账户积分明细
+     * purpose: 获取积分明细列表
+     * return:  返回列表数据结果
+     * author:longdada
+     * write_time:2019/02/10 20:05
+     */
+    public function get_user_score_log()
+    {
+        return $this->user_change->get_user_score_log();
+    }
 }
