@@ -65,7 +65,7 @@ class UserAddressModel
     public function get_address_row()
     {
         $post_data=input();
-        if($this->validate->scene('get_address_row')->check($post_data)){
+        if($this->validates->scene('get_address_row')->check($post_data)){
             $where['id']=$post_data['id'];
             $rs_row=$this->address->where($where)->find();
             if(!empty($rs_row)){
@@ -100,7 +100,7 @@ class UserAddressModel
     public function save_address_add()
     {
         $post_data=input();
-        if($this->validate->scene('save_address_add')->check($post_data)){
+        if($this->validates->scene('save_address_add')->check($post_data)){
             $post_data['status']=1;
             $rs_st=$this->address->allowField(true)->isUpdate(false)->save($post_data);
             if($rs_st!==false){
@@ -128,7 +128,7 @@ class UserAddressModel
     public function save_address_edit()
     {
         $post_data=input();
-        if($this->validate->scene('save_address_edit')->check($post_data)){
+        if($this->validates->scene('save_address_edit')->check($post_data)){
             $rs_st=$this->address->allowField(true)->isUpdate(true)->save($post_data);
             if($rs_st!==false){
                 if($post_data['is_default']==1){
@@ -156,7 +156,7 @@ class UserAddressModel
     public function save_address_del()
     {
         $post_data=input();
-        if($this->validate->scene('save_address_del')->check($post_data)){
+        if($this->validates->scene('save_address_del')->check($post_data)){
             $post_data['status']=-1;
             $rs_st=$this->address->allowField(true)->isUpdate(true)->save($post_data);
             if($rs_st!==false){

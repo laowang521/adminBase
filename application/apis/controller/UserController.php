@@ -35,6 +35,18 @@ class UserController extends ApisBaseController
         $rs_data['data']=$rs_arr;
         return json($rs_data);
     }
+    /* name:电话咨询(获取平台联系方式)
+     * purpose: 获取平台联系方式
+     * return:  返回平台电话号码结果
+     * author:longdada
+     * write_time:2019/02/09 22:20
+     */
+    public function getSystemMobile()
+    {
+        $rs_data['code']=1;
+        $rs_data['data']='0371-65742335';
+        return json($rs_data);
+    }
     /* name:验证手机号
      * purpose: 验证手机号是否合法
      * return:  返回验证结果结果
