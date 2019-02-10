@@ -52,5 +52,6 @@ class UserValidate extends Validate
         'upload_img_file_user'  =>  ['id','head_img'],
         'upload_img_base64_user'  =>  ['id','head_img'=>"require"],
         'user_set_address_default'  =>  ['id','address_id'],
+        'get_user_money_count'  =>  ['id'],
     ];
 }

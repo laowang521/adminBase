@@ -13,11 +13,11 @@ class UserBrowseModel
         $this->user_browse=model('db.UserBrowse');
         $this->validates=validate('UserBrowse');
     }
-    /* name:我的关注列表
-     * purpose: 获取我关注的店铺,商铺,文章,用户列表
+    /* name:我的浏览记录列表
+     * purpose: 获取我浏览的店铺,商铺,文章,用户列表
      * return:  返回列表数据
      * author:longdada
-     * write_time:2019/02/08 12:10
+     * write_time:2019/02/08 17:10
      */
     public function get_browse_list()
     {
@@ -99,7 +99,7 @@ class UserBrowseModel
                 }
             }else{
                 $rs_arr['code']=0;
-                $rs_arr['msg']=lang("NOT_FOLLOW");
+                $rs_arr['msg']=lang("NOT_BROWSE");
             }
         }else{
             $rs_arr['code']=0;

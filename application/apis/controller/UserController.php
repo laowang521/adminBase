@@ -18,6 +18,8 @@ class UserController extends ApisBaseController
         $this->user_collect=model('service.UserCollect');
         $this->user_browse=model('service.UserBrowse');
         $this->user_feedback=model('service.UserFeedback');
+        $this->user_sign=model('service.UserSign');
+        $this->user_change=model('service.UserChange');
         $this->region=model('service.Region');
         $this->system=model('service.System');
     }
@@ -386,6 +388,61 @@ class UserController extends ApisBaseController
     public function saveFeedback()
     {
         $rs_data=$this->user_feedback->save_feedback();
+        return json($rs_data);
+    }
+    /* name:会员连续签到天数
+     * purpose: 会员连续签到天数(获取签到天数)
+     * return:  返回查询结果
+     * author:longdada
+     * write_time:2019/02/10 08:35
+     */
+    public function getUserSignCount()
+    {
+        $rs_data=$this->user_sign->get_user_sign_count();
+        return json($rs_data);
+    }
+    /* name:会员签到
+     * purpose: 保存会员签到记录
+     * return:  返回保存结果
+     * author:longdada
+     * write_time:2019/02/10 09:15
+     */
+    public function saveUserSignAdd()
+    {
+        $rs_data=$this->user_sign->save_user_sign_add();
+        return json($rs_data);
+    }
+    /* name:获取用户账号总余额
+     * purpose: 保存会员签到记录
+     * return:  返回用户账号总余额
+     * author:longdada
+     * write_time:2019/02/10 09:15
+     */
+    public function getUserMoneyCount()
+    {
+        $rs_data=$this->user->get_user_money_count();
+        return json($rs_data);
+    }
+    /* name:账户余额充值
+     * purpose: 保存会员账户余额充值
+     * return:  返回保存结果
+     * author:longdada
+     * write_time:2019/02/10 09:55
+     */
+    public function saveUserMoneyAdd()
+    {
+        $rs_data=$this->user_change->save_user_money_add();
+        return json($rs_data);
+    }
+    /* name:充值支付确认
+     * purpose: 充值支付成功更新用户余额
+     * return:  返回更新结果
+     * author:longdada
+     * write_time:2019/02/10 10:55
+     */
+    public function saveUserMoneyConfirm()
+    {
+        $rs_data=$this->user_change->save_user_money_confirm();
         return json($rs_data);
     }
 }

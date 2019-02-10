@@ -4,7 +4,7 @@ namespace app\apis\model\service;
 class UserBrowseModel 
 {
     /* name:初始化函数
-     * purpose: 收藏模型初始化方法,初始化收藏逻辑层类对象.
+     * purpose: 浏览记录模型初始化方法,初始化浏览记录逻辑层类对象.
      * return:  无
      * author:longdada
      * write_time:2019/01/30 14:50
@@ -13,8 +13,8 @@ class UserBrowseModel
     {
         $this->user_browse=model('logic.UserBrowse');
     }
-    /* name:我的收藏列表
-     * purpose: 获取我收藏的店铺,商铺,文章,用户列表
+    /* name:我的浏览记录列表
+     * purpose: 获取我浏览的店铺,商铺,文章,用户列表
      * return:  返回列表数据
      * author:longdada
      * write_time:2019/02/08 17:10
@@ -23,9 +23,9 @@ class UserBrowseModel
     {
         return $this->user_browse->get_browse_list();
     }
-    /* name:添加收藏
-     * purpose: 保存添加收藏
-     * return:  返回收藏结果
+    /* name:添加浏览记录
+     * purpose: 保存添加浏览记录
+     * return:  返回浏览记录结果
      * author:longdada
      * write_time:2019/02/08 17:17
      */
@@ -33,9 +33,9 @@ class UserBrowseModel
     {
         return $this->user_browse->save_browse_add();
     }
-    /* name:取消收藏
-     * purpose: 保存取消收藏
-     * return:  返回取消收藏结果
+    /* name:取消浏览记录
+     * purpose: 保存取消浏览记录
+     * return:  返回取消浏览记录结果
      * author:longdada
      * write_time:2019/02/08 17:40
      */

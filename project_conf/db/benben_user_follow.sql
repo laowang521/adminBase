@@ -20,8 +20,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 -- Table structure for benben_user_follow
 -- ----------------------------
-DROP TABLE IF EXISTS `benben_user_feedback`;
-CREATE TABLE `benben_user_feedback`  (
+DROP TABLE IF EXISTS `benben_user_sign;
+CREATE TABLE `benben_user_sign`  (
   `id` int(20) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NULL DEFAULT NULL COMMENT '用户ID',
   `content` text COMMENT '建议内容',

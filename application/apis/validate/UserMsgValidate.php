@@ -3,8 +3,8 @@ namespace app\apis\validate;
 use think\Validate;
 class UserMsgValidate extends Validate
 {   
-    /* name:用户收货地址验证规则
-     * purpose: 对用户的收货地址进行验证
+    /* name:用户消息验证规则
+     * purpose: 对用户的消息进行验证
      * return:  无
      * author:longdada
      * write_time:2019/02/02 18:09
@@ -21,7 +21,7 @@ class UserMsgValidate extends Validate
      */
     protected $message = [
     ];
-    /* name:收货地址验证场景
+    /* name:消息验证场景
      * purpose: 按照不同的场景定义不同的验证规则更加灵活 
      * return:  无
      * author:longdada

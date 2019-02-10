@@ -166,4 +166,14 @@ class UserModel
     {
         return  $this->user->user_set_address_default();
     }
+    /* name:获取用户账号总余额
+     * purpose: 保存会员签到记录
+     * return:  返回用户账号总余额
+     * author:longdada
+     * write_time:2019/02/10 09:15
+     */
+    public function get_user_money_count()
+    {
+        return $this->user->get_user_money_count();
+    }
 }

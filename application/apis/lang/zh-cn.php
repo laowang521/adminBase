@@ -22,6 +22,9 @@ return [
     'SAVE_SUCCESS'  => '保存成功',
     'SAVE_ERROR' => '保存失败',
     'PASSWD_EQUAL' => '新密码和原密码相同，重置失败',
+    /********签到*********/
+    'SIGN_SUCCESS'  => '签到成功',
+    'SIGN_ERROR' => '签到失败',
     /********登录*********/
     'LOGIN_SUCCESS'  => '登录成功',
     'LOGIN_ERROR' => '密码错误，登录失败.',
@@ -42,7 +45,7 @@ return [
     'PASSWD_ERROR' => '密码错误',
     'NOT_REGISTER' => '您还没注册',
     'VALIDATE_CODE_ERROR' => '验证码错误',
-    /********其他*****DO_COLLECT*****/
+    /********其他**********/
     'NOT_USER_INFO'  => '未找到用户信息',
     'NOT_USER_FILE'  => '请选择上传文件',
     'IMG_ERROR'  => '上传图片格式错误',
@@ -50,6 +53,8 @@ return [
     'NOT_FOLLOW'  => '还没有关注过,无法取消',
     'DO_COLLECT'  => '已经收藏过,请勿重复收藏',
     'NOT_COLLECT'  => '还没有收藏过,无法取消',
-    'DO_COLLECT'  => '浏览记录已存在,请勿重复收藏',
-    'NOT_COLLECT'  => '还没有收藏过,无法取消',
+    'NOT_BROWSE'  => '未找到对应浏览记录',
+    'ALREADY_SIGN'  => '今天已经签到过了，请勿重复签到',
+    'NOT_PAY_INFO'  => '未找到对应的支付信息，不能确认支付',
+    'RECHARGE'  => '充值',
 ];

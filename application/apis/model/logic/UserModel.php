@@ -467,4 +467,29 @@ class UserModel
         }
         return $rs_arr;
     }
+     /* name:获取用户账号总余额
+     * purpose: 保存会员签到记录
+     * return:  返回用户账号总余额
+     * author:longdada
+     * write_time:2019/02/10 09:15
+     */
+    public function get_user_money_count()
+    {
+        $post_data=input();
+        if($this->validates->scene('get_user_money_count')->check($post_data)){
+            $where['id']=$post_data['id'];
+            $rs_row=$this->user->where($where)->find();
+            if(empty($rs_row)){
+                $rs_arr['code']=0;
+                $rs_arr['msg']=lang("NOT_USER_INFO");
+            }else{
+                $rs_arr['code']=1;
+                $rs_arr['data']=$rs_row['user_money'];
+            }
+        }else{
+            $rs_arr['code']=0;
+            $rs_arr['msg']=$this->validates->getError();
+        }
+        return $rs_arr;
+    }
 }
