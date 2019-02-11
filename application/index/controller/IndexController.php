@@ -5,6 +5,7 @@ header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 use think\Controller;
 class IndexController extends Controller
 {
+    //2019新年第一更
     public function _initialize()
     {
         parent::_initialize();
