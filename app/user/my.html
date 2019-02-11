@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>山野大集</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+
+	</head>
+
+	<body>
+		<style type="text/css">
+.mui-bar-nav~.mui-content.mine{padding-top: 0;}
+.my_head{border-bottom: none;}
+.my_head>.mui-icon{color: #fff;}
+.mine_top{height: 160px;width: 100%;position: relative;padding: 0 10px;background: -webkit-linear-gradient(to right, #ff8e0c, #ff5011) no-repeat center 0;background: linear-gradient(to right, #ff8e0c, #ff5011) no-repeat center 0;}
+.mine_top .tit{overflow: hidden;padding: 44px 0 0 0;position: relative;}
+.mine_top .tit .pic{width: 70px;height: 70px;border-radius: 50%;overflow: hidden;margin-right: 20px;float: left;}
+.mine_top .tit .pic img{width: 100%;height: 100%;}
+.mine_top .tit .text{padding-top: 24px;overflow: hidden;}
+.mine_top .tit .text .top h1{font-size: 17px;color: #fff;font-weight: normal;display: inline-block;}
+.mine_top .tit .text .top i{color: #fff;margin: 0 10px;}
+.my_order{background: #fff;width: 94%;margin: 0 auto -10px auto;border-radius: 10px 10px 5px 5px;padding: 15px 0;position: relative;top: -20px}
+.my_order .tit{overflow: hidden;position: relative}
+.my_order .tit p{float: left;font-size: 18px;color: #333;font-weight: bold;}
+.my_order .tit span{font-size: 12px;color: #999;float: right;}
+.my_order .tit span i{font-size: 12px;color: #999;}
+.my_order .my_order_list .list{float: left;width: 20%;text-align: center;}
+.my_order .my_order_list .list i{color: #ff4f11;font-size: 24px;}
+.my_order .my_order_list .list p{color: #333;font-size: 12px;}
+.my_order .my_order_list{overflow: hidden;margin-top: 5px;}
+.my_setting{position: absolute;right: 0;top: 30px;height: 30px;text-align: center;width: 30px;}
+.my_setting .iconfont{color: #fff;}
+.order_status_box{width: 100%;height: 24px;line-height: 24px;text-align: center;vertical-align: middle;margin-bottom: 10px;}
+.order_status_box img{width: auto;height: 24px;}
+.my_yewu{background: #fff;width: 94%;margin: 0 auto 10px auto;border-radius: 10px;padding: 20px 10px 10px 10px;}
+.my_yewu .tit p{font-size: 18px;color: #333;font-weight: bold;}
+.my_yewu .tit{margin-bottom: 20px;}
+.my_yewu .my_yewu_list{overflow: hidden;padding-top: 2px;}
+.my_yewu .my_yewu_list .list{float: left;width: 33.33333%;text-align: center;margin-bottom: 20px;}
+.my_yewu .my_yewu_list .list i{font-size: 24px;color: #333;}
+.my_yewu .my_yewu_list .list p{font-size: 12px;color: #333;}
+.my_yewu .my_yewu_list .list .icon-sale{color: #ffbe52;}
+.my_yewu .my_yewu_list .list .icon-dianpu1{color: #7eb2eb;}
+.my_yewu .my_yewu_list .list .icon-zuji{color: #f67878;}
+.my_yewu .my_yewu_list .list .icon-yue2{color: #ff9766;}
+.my_yewu .my_yewu_list .list .icon-dizhi1{color: #69c16d;}
+.my_yewu .my_yewu_list .list .icon-qianbi{color: #ffc159;}
+.my_yewu .my_yewu_list .list .icon-yijianfankui{color: #7eb2eb;}
+.my_yewu .my_yewu_list .list .icon-guanyu{color: #f67878;}
+.my_yewu .my_yewu_list .list .icon-kefu{color: #69c16d;}
+		</style>
+
+		<div class="mui-content mine">
+			<div class="mine_top">
+				<div class="tit">
+					<div class="pic newact" url="/user/login.html">
+						<img src="../img/user.jpg" />
+					</div>
+					<div class="text newactlogin" url="/user/user_info.html">
+						<div class="top">
+							<h1>蜡笔没有小新</h1>
+							<i class="iconfont icon-bianji"></i>
+
+						</div>
+
+					</div>
+					<div class="my_setting"><span class="iconfont icon-shezhi"></span></div>
+				</div>
+
+			</div>
+			<div class="my_order">
+
+				<div class="my_order_list">
+					<div class="list">
+
+						<div class="order_status_box"><img src="../img/order_status1.png" /></div>
+						<p>待付款</p>
+					</div>
+					<div class="list">
+						<div class="order_status_box"><img src="../img/order_status2.png" /></div>
+						<p>待发货</p>
+					</div>
+					<div class="list">
+						<div class="order_status_box"><img src="../img/order_status3.png" /></div>
+						<p>待收货</p>
+					</div>
+					<div class="list">
+						<div class="order_status_box"><img src="../img/order_status4.png" /></div>
+						<p>待评价</p>
+					</div>
+					<div class="list">
+						<div class="order_status_box"><img src="../img/order_status5.png" /></div>
+						<p>我的订单</p>
+					</div>
+				</div>
+			</div>
+			<div class="my_yewu">
+				<div class="my_yewu_list ">
+					<div class="list newactlogin" url="/user/collect.html">
+						<i class="iconfont icon-sale"></i>
+						<p>收藏商品</p>
+					</div>
+					<div class="list newactlogin" url="/user/guanzhu_shop.html">
+						<i class="iconfont icon-dianpu1"></i>
+						<p>关注商家</p>
+					</div>
+					<div class="list newactlogin" url="/user/my_intrgral.html">
+						<i class="iconfont icon-zuji"></i>
+						<p>浏览历史</p>
+					</div>
+					<div class="list newact" url="/user/footprint.html">
+						<i class="iconfont icon-yue2"></i>
+						<p>钱包余额</p>
+					</div>
+					<div class="list newact" url="/user/addr_list.html">
+						<i class="iconfont icon-dizhi1"></i>
+						<p>地址管理</p>
+					</div>
+					<div class="list newactlogin" url="/user/tongban.html">
+						<i class="iconfont icon-qianbi"></i>
+						<p>铜板</p>
+					</div>
+					<div class="list newactlogin" url="/user/fankui.html">
+						<i class="iconfont icon-yijianfankui"></i>
+						<p>意见反馈</p>
+					</div>
+					<div class="list newactlogin" url="/user/about.html">
+						<i class="iconfont icon-guanyu"></i>
+						<p>关于我们</p>
+					</div>
+					<div class="list newactlogin" url="/user/lianxi.html">
+						<i class="iconfont icon-kefu"></i>
+						<p>联系我们</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</body>
+	<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/benben.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		mui.init();
+		
+		
+		
+		
+		
+	</script>
+
+</html>

@@ -1,0 +1,20 @@
+{
+	"index.html": {
+		"resources": [
+			"public/main.html"
+		],
+		"refer": [
+			"public/car.html",
+			"user/login.html",
+			"public/main.html",
+			"user/my.html"
+		]
+	},
+	"user/my.html": {
+		"refer": [
+			"user/login2.html",
+			"user/login.html",
+			"user/addr_list.html"
+		]
+	}
+}

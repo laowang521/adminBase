@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>新增地址</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/mui.poppicker.css" />
+		<link rel="stylesheet" type="text/css" href="../css/mui.picker.css" />
+	</head>
+	<style type="text/css">
+		.mui-poppicker {
+			z-index: 9999;
+		}
+	</style>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav"></a>
+			<h1 class="mui-title">新增地址</h1>
+		</header>
+		<div class="mui-content  add_address_module">
+			<div class="box01">
+				<span>收货人</span>
+				<div class="input_wrap"><input type="text" placeholder="请输入姓名" /></div>
+
+			</div>
+			<div class="box01">
+				<span>手机号码</span>
+				<div class="input_wrap"><input type="text" placeholder="请输入手机号码" /></div>
+			</div>
+			<div id="showCityPicker3" class="box01">
+				<span>所属地区</span>
+				<div class="input_wrap"><input id="cityResult3" type="text" placeholder="请选择收货地址" /></div>
+			</div>
+			<div class="add_text">
+				<p>详细地址</p>
+				<textarea name="" rows="" cols="" placeholder="如街道、门牌号、小区、楼栋号、单元室等" id="search_val"></textarea>
+
+			</div>
+			<div class="add_box">
+				<p>设为默认地址</p>
+				<div class="mui-switch mui-active mui-switch-mini">
+					<div class="mui-switch-handle"></div>
+				</div>
+			</div>
+			<div class="add_addr_btn newact" url="/public/add_addr.html">
+				保存
+			</div>
+		</div>
+	</body>
+	<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/mui.picker.js"></script>
+	<script src="../js/mui.poppicker.js"></script>
+	<script src="../js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/benben.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		(function($, doc) {
+			$.init();
+			$.ready(function() {
+				var _getParam = function(obj, param) {
+					return obj[param] || '';
+				};
+				var cityPicker3 = new $.PopPicker({
+					layer: 3
+				});
+				cityPicker3.setData(cityData3);
+				var showCityPickerButton = doc.getElementById('showCityPicker3');
+				var cityResult3 = doc.getElementById('cityResult3');
+				showCityPickerButton.addEventListener('tap', function(event) {
+					cityPicker3.show(function(items) {
+						cityResult3.value = _getParam(items[0], 'text') + " " + _getParam(items[1], 'text') + " " + _getParam(items[2], 'text');
+						//返回 false 可以阻止选择框的关闭
+						//return false;
+					});
+				}, false);
+			});
+		})(mui, document);
+
+		mui.init();
+	</script>
+
+</html>

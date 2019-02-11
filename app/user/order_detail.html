@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>订单详情</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<style type="text/css">
+ .mui-bar-nav~.mui-content{padding-bottom: 70px;}
+
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav ">
+			<a class="mui-action-back mui-icon mui-icon-left-nav"></a>
+			<h1 class="mui-title">订单详情</h1>
+		</header>
+		<div class="mui-content order_module">
+			<div class="order_detail_cont">
+				<p>订单完成 <span>待收货</span></p>
+			</div>
+			<div class="order_detail_address">
+				<div class="order_detail_addbox">
+					<p class="sh_dz">收货地址</p>
+					<p class="name"><span>张三</span>
+						<m>15903033133</m>
+					</p>
+					<div class="dizhi"><i class="iconfont icon-dizhi"></i><span>中国 河南省郑州市二七区大学北路华城国际中心9号楼13楼</span></div>
+				</div>
+			</div>
+			<div class="order_detail_shop">
+				<div class="order_detail_shoptop">
+					<p>优库旗舰店</p>
+				</div>
+				<ul>
+					<li>
+						<div class="sp_info">
+							<div class="shop_img"><img src="../img/dingdan.jpg" alt="" /></div>
+							<div class="order_list_left">
+								<p>Child’s Dress</p>
+								<span>Kaffe  短款</span>
+							</div>
+							<div class="order_list_right">
+								<p><b>￥</b>
+									<m class="price">99.8</m><span>x1</span></p>
+							</div>
+						</div>
+
+						<div class="price">
+							<p class="jiage"><span>金额</span>
+								<b>99.8</b>
+								<m>￥</m>
+							</p>
+							<p class="yingfu"><span>应付金额</span>
+								<b>99.8</b>
+								<m>￥</m>
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="order_detail_infobox">
+				<ul>
+					<li>
+						<p>订单信息</p>
+					</li>
+					<li class="act">
+						<p>订单编号：</p>
+						<span>20187899890988</span>
+					</li>
+					<li>
+						<p>下单时间：</p>
+						<span>2018-10-10 15:32</span>
+					</li>
+					<li>
+						<p>支付方式：</p>
+						<span>微信支付</span>
+					</li>
+					<li>
+						<p>支付时间：</p>
+						<span>2018-10-19 15:44</span>
+					</li>
+					<li>
+						<p>完成时间：</p>
+						<span>暂无</span>
+					</li>
+				</ul>
+			</div>
+			<div class="lianxi">
+				<i class="iconfont icon-kefu"></i>
+				<span>联系商家</span>
+			</div>
+			<div class="caozuo">
+				<span>查看物流</span>
+				<span>申请退货</span>
+				<span class="active">确认退货</span>
+			</div>
+		</div>
+	</body>
+	<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/benben.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(".popover_cont ul li").on("tap", function() {
+			$(this).find("i").addClass("icon-xuanzhong").parents().siblings().find("i").removeClass("icon-xuanzhong")
+		})
+		$(".del").on("tap", function() {
+			$(".popover_box").show();
+			$(".popover_cont").slideDown()
+		})
+		$(".popover_box").on("tap", function() {
+			$(".popover_cont").slideUp();
+			$(".popover_box").hide();
+		})
+		$(".icon-guanbi1").on("tap", function() {
+			$(".popover_cont").slideUp();
+			$(".popover_box").hide();
+		})
+	</script>
+
+</html>

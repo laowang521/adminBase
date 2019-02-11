@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>登录</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />  
+	</head>
+	<style type="text/css">
+		@import url("https://at.alicdn.com/t/font_1020910_awtkhmfdhye.css");
+	</style>
+
+	<body class="bg_fff login_module6">
+	<div class="mui-content login">
+		<div class="login_top">
+			<img src="../img/logo6.png"/>			
+		</div>
+		<div class="login_main">
+			<div class="login_box">
+				<i class="iconfont icon-shouji"></i>
+				<input type="text" id="tel" placeholder="请输入手机号"/>
+			</div>
+			<div class="login_box">
+				<i class="iconfont icon-mima"></i>
+				<input type="password" id="pass" placeholder="请输入密码(6~12位)"/>
+			</div>
+		</div>
+		<input type="button" value="登录" id="btn" class="login_btn"/>
+		<ul class="login_max">
+			<li class="act">
+				注册账号
+			</li>
+			<li>
+				忘记密码
+			</li>
+		</ul>
+
+		<div class="login_other">
+			<p>快捷登录</p>
+			<ul>
+				<li>
+					<i class="iconfont icon-weixin"></i>
+				</li>
+				<li>
+					<i class="iconfont icon-qq"></i>
+				</li>
+				<li>
+					<i class="iconfont icon-weibo"></i>
+				</li>
+			</ul>
+		</div>
+	</div> 
+</body>
+	<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		mui.init();
+		
+		
+		
+		
+		
+		$("#btn").on('tap',function(){
+			
+			var tel = $("#tel").val();
+			
+			var pass = $("#pass").val();
+			
+				API.login(tel, pass).then(function(res) {
+  log(S(res))
+				if(res.code == 1) {
+				
+				       log(S(res))
+				
+				}
+
+			}).catch(function(err) {
+				log(S(err))
+			});
+			
+			
+			
+		})
+		
+		
+		
+
+		
+		
+		
+	</script>
+</html>
+

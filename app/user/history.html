@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>浏览历史关注等</title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+
+		<style type="text/css">
+			.edit {
+				color: #ff4f11;
+				float: right;
+				line-height: 44px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav"></a>
+			<h1 class="mui-title">浏览历史</h1>
+			<span class="edit">编辑</span>
+		</header>
+		<div class="mui-content collect_module">
+			
+
+			<div class="shou_box" style="padding-top: 10px;">
+				<ul class="shop_box" style="display: block;">
+
+					<li>
+						<i class="iconfont icon-yuanxingweixuanzhong xuanze"></i>
+						<div class="appoint_top">
+							<div class="shangyi"><img src="../img/shop.jpg"></div>
+							<div class="appoint_top_box">
+								<p class="appoint_name">大山</p>
+								<p class="appoint_price">流行牛仔外套,经典款式</p>
+								<p class="appoint_xiao"><span>￥</span>128.00</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<i class="iconfont icon-yuanxingweixuanzhong xuanze"></i>
+						<div class="appoint_top">
+							<div class="shangyi"><img src="../img/dingdan.jpg"></div>
+							<div class="appoint_top_box">
+								<p class="appoint_name">连衣裙</p>
+								<p class="appoint_price">流行女士连衣裙</p>
+								<p class="appoint_xiao"><span>￥</span>128.00</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+	
+				<div id="zanwu">
+
+				</div>
+			</div>
+			<div class="message_final">
+				<div class="message_final_left">
+					<p><i class="iconfont icon-yuanxingweixuanzhong"></i>全选</p>
+				</div>
+				<div class="message_final_right">
+					<p>删除(<span class="shanchu">0</span>)</p>
+				</div>
+			</div>
+		</div>
+
+	</body>
+	<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/benben.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+
+
+		$(".edit").on("tap", function() {
+			if($(this).text() == "编辑") {
+				$(this).text("完成")
+				$(".xuanze").show();
+
+				$(".appoint_top").css({
+					"width": "calc(100% - 28px)",
+					"margin-left": "28px"
+				})
+				$(".message_final").show();
+			} else if($(this).text() == "完成") {
+				$(this).text("编辑")
+				$(".xuanze").hide();
+
+				$(".appoint_top").css({
+					"width": "100%",
+					"margin-left": "0px"
+				})
+				$(".message_final").hide();
+			}
+		})
+
+		/*选中效果*/
+		$(".shop_box").on("tap", ".xuanze", function(e) {
+			$(this).toggleClass("act")
+			var _len = $(".shop_box  .xuanze").length;
+			var len = $(".shop_box  .act").length;
+			$(".shanchu").html(len)
+			if(_len == len) {
+				$(".message_final_left").addClass("act")
+			} else {
+				$(".message_final_left").removeClass("act")
+			}
+		})
+
+		$(".message_final_left").on("tap", function() {
+			$(this).toggleClass("act");
+
+			var _len = $(".shop_box  .xuanze").length;
+			if($(this).hasClass("act")) {
+				$(".shop_box  .xuanze").addClass("act")
+				$(".shanchu").html(_len)
+			} else {
+				$(".shanchu").html(0)
+				$(".shop_box  .xuanze").removeClass("act")
+			}
+
+		})
+	</script>
+
+</html>

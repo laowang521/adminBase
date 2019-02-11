@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>购物车</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+	</head>
+	<style type="text/css">
+
+/* 头部*/.color_header_item .iconfont{color: #fff;}
+.color_header_item{float: right;height: 44px;line-height: 44px;text-align: center;color: #fff;padding: 0 10px;}
+</style>
+
+	<body>
+		<!--  头 -->
+		<header class="mui-bar mui-bar-nav color_header">
+			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+			<h1 class="mui-title">购物车</h1>
+			<div class="color_header_item"><span class="iconfont icon-shanchu"></span></div>
+		</header>
+		<div class="mui-content car_module">
+			<div class="sopping_list_main">
+				<ul class="sopping_mian_ul">
+					<div class="sopping_tilt">
+						<div class="sopping_main_dui title_quyu fl">
+							<div class="sopping_main_left">
+								<i class="iconfont"></i>
+							</div>
+						</div>
+						<h3>yun旗舰店</h3>
+						<div class="kefu_btn"><span class="iconfont icon-kefu"></span></div>
+					</div>
+					<div class="mui-clearfix"></div>
+					<li>
+						<div class="sopping_main_dui">
+							<div class="sopping_main_left">
+								<i class="iconfont"></i>
+							</div>
+						</div>
+						<div class="sopping_itme">
+							<div class="sopping_img">
+								<img src="../img/car_img1.png" />
+							</div>
+							<div class="sopping_right">
+								<div class="sopping_right_top">
+									<h1>欧舒丹甜蜜樱花沐浴啫喱/身体乳套装身体乳套装</h1>
+								</div>
+								<div class="shuxing">
+									320ml
+								</div>
+								<div class="sopping_zj">
+									<div class="sopping_right_bom">
+										<b>¥</b><span class="one_price">455.00</span>
+									</div>
+									<div class="mui-numbox fr" data-numbox-min="1" data-numbox-max="100">
+										<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+										<input class="mui-input-numbox" type="number" disabled="disabled" />
+										<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="sopping_main_dui">
+							<div class="sopping_main_left">
+								<i class="iconfont"></i>
+							</div>
+						</div>
+						<div class="sopping_itme">
+							<div class="sopping_img">
+								<img src="../img/car_img1.png" />
+							</div>
+							<div class="sopping_right">
+								<div class="sopping_right_top">
+									<h1>欧舒丹甜蜜樱花沐浴啫喱/身体乳套装身体乳套装</h1>
+								</div>
+								<div class="shuxing">
+									320ml
+								</div>
+								<div class="sopping_zj">
+									<div class="sopping_right_bom">
+										<b>¥</b><span class="one_price">455.00</span>
+									</div>
+									<div class="mui-numbox fr" data-numbox-min="1" data-numbox-max="100">
+										<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+										<input class="mui-input-numbox" type="number" disabled="disabled" />
+										<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul class="sopping_mian_ul">
+					<div class="sopping_tilt">
+						<div class="sopping_main_dui title_quyu">
+							<div class="sopping_main_left">
+								<i class="iconfont"></i>
+							</div>
+						</div>
+						<h3>yun旗舰店</h3>
+						<div class="kefu_btn"><span class="iconfont icon-kefu"></span></div>
+					</div>
+					<div class="mui-clearfix"></div>
+					<li>
+						<div class="sopping_main_dui">
+							<div class="sopping_main_left">
+								<i class="iconfont"></i>
+							</div>
+						</div>
+						<div class="sopping_itme">
+							<div class="sopping_img">
+								<img src="../img/car_img2.png" />
+							</div>
+							<div class="sopping_right">
+								<div class="sopping_right_top">
+									<h1>欧舒丹甜蜜樱花沐浴啫喱/身体乳套装身体乳套装</h1>
+								</div>
+								<div class="shuxing">
+									320ml
+								</div>
+								<div class="sopping_zj">
+									<div class="sopping_right_bom">
+										<b>¥</b><span class="one_price">455.00</span>
+									</div>
+									<div class="mui-numbox fr" data-numbox-min="1" data-numbox-max="100">
+										<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+										<input class="mui-input-numbox" type="number" disabled="disabled" />
+										<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!--底部全选-->
+			<div class="sopping_dele sopping_check ">
+				<div class="sopping_dele_left">
+					<div class="sopping_main_left AllCheck" id="AllCheck">
+						<i class="iconfont"></i>
+					</div>
+					<span class="quanxuan fl">全选</span>
+					<span class="sopping_math fr">总计：<m>¥<span id="AllTotal"></span></m>
+					</span>
+				</div>
+				<button class="js_btn newact" url="/public/confirm_order.html">去结算</button>
+			</div>
+			<div class="sopping_dele shop_dele" style="display: none;">
+				<div class="sopping_dele_left">
+					<div class="sopping_main_left AllCheck" id="Alldele">
+						<i class="iconfont"></i>
+					</div>
+					<span class="quanxuan fl">全选</span>
+				</div>
+				<button class="dele">删除</button>
+			</div>
+
+			<div class="kongkong">
+				<div class="pic_tit">
+					<img src="../img/car.png" />
+					<p>还没有商品哦，快去浏览吧~</p>
+					<button class="index">查看首页</button>
+					<button class="liulan">去逛逛</button>
+				</div>
+
+			</div>
+
+			<div class="car_like_title">猜你喜欢</div>
+			<ul class="like_list" style="padding-top: 0;">
+
+				<li>
+					<div class="pic">
+						<img src="../img/car_img1.png" />
+					</div>
+					<div class="text">
+						<h1>东京购物精华篇 日本药妆店便宜必败好物</h1>
+						<div class="bom">
+							<span class="fl">¥<span>6999.00</span></span>
+							<p class="fr">514211已付款</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="../img/car_img2.png" />
+					</div>
+					<div class="text">
+						<h1>东京购物精华篇 日本药妆店便宜必败好物</h1>
+						<div class="bom">
+							<span class="fl">¥<span>6999.00</span></span>
+							<p class="fr">514211已付款</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+		</div>
+	</body>
+	<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function() {
+			if($('.sopping_mian_ul li').length > 0) {
+				$("#AllCheck").removeClass('active');
+				$('.kongkong').hide();
+				$(".sopping_check").show();
+				$('#guanli').show();
+			}
+			TotalPrice();
+			//点击区域全选
+			$('.title_quyu').on('tap', function() {
+				if($(this).hasClass('active')) {
+					$(this).removeClass('active');
+					$(this).parents('.sopping_mian_ul').find('li').removeClass('active');
+					TotalPrice();
+				} else {
+					$(this).addClass('active');
+					$(this).parents('.sopping_mian_ul').find('li').addClass('active');
+					TotalPrice();
+				}
+				TotalPrice();
+			})
+			$('.sopping_mian_ul .sopping_main_dui').on('tap', function() {
+				if(!$(this).closest('li').hasClass('active')) {
+					$(this).closest('li').addClass('active');
+					TotalPrice();
+				} else {
+					$(this).closest('li').removeClass('active');
+					TotalPrice();
+				}
+				//区域选中
+				var len = $(this).parents('.sopping_mian_ul').find('li').length; //2
+
+				if($(this).parents('.sopping_mian_ul').find('li.active').length == len) {
+
+					$(this).parents('.sopping_mian_ul').find(".title_quyu").addClass('active');
+				}
+				//取消
+				if($(this).parents('.sopping_mian_ul').find('li.active').length < len) {
+					$('#AllCheck').removeClass('active');
+					$('#Alldele').removeClass('active');
+					$(this).parents('.sopping_mian_ul').find(".title_quyu").removeClass('active');
+				}
+				//全选
+				var lens = $(this).parents('.sopping_list_main').find('li').length;
+				if($(this).parents('.sopping_list_main').find('li.active').length == lens) {
+					$('#AllCheck').addClass('active');
+					$('#Alldele').addClass('active');
+				} else {
+					$('#AllCheck').removeClass('active');
+					$('#Alldele').removeClass('active');
+				};
+				TotalPrice();
+			});
+
+			Array.prototype.slice.call(document.querySelectorAll('.mui-input-numbox')).forEach(function(v, k) {
+
+				mui(v)[0].addEventListener('change', function() {
+					TotalPrice();
+				}, false)
+			})
+
+			// 点击全选按钮
+			$("#AllCheck").click(function() {
+				if($(this).hasClass('active')) {
+					$(this).removeClass('active');
+					$('.sopping_mian_ul li').removeClass('active');
+					$('.title_quyu').removeClass('active');
+					TotalPrice();
+				} else {
+					$(this).addClass('active');
+					$('.sopping_mian_ul li').addClass('active');
+					$('.title_quyu').addClass('active');
+					TotalPrice();
+				}
+			});
+			$("#Alldele").click(function() {
+				if($(this).hasClass('active')) {
+					$(this).removeClass('active');
+					$('.sopping_mian_ul li').removeClass('active');
+					$('.title_quyu').removeClass('active');
+				} else {
+					$(this).addClass('active');
+					$('.sopping_mian_ul li').addClass('active');
+					$('.title_quyu').addClass('active');
+				}
+			});
+			//删除
+			$('.dele').on('tap', function() {
+				var btnArray = ['取消', '确定'];
+				var ele = $(this)
+				mui.confirm('确定删除选中商品吗？', ' ', btnArray, function(e) {
+
+					if(e.index == 1) {
+						$(".suc_btn").fadeIn()
+						$(".del_nav").hide()
+						ele.parents('li').remove();
+						$('.sopping_mian_ul .active').each(function() {
+							$(this).remove();
+						})
+						$(".sopping_mian_ul").each(function() {
+							if($(this).children('li').length == 0) {
+								$(this).remove();
+							}
+						})
+						if($('.sopping_mian_ul li').length == 0) {
+							$(".sopping_tilt").remove()
+							$("#AllCheck").removeClass('active');
+							$('.kongkong').show();
+							$(".sopping_dele").hide();
+							$('#guanli').hide();
+						}
+					} else {}
+				});
+			});
+			//计算
+			function TotalPrice() {
+				var allprice = 0; //总价
+
+				$(".sopping_mian_ul li").each(function() { //循环每个店铺
+					if($(this).hasClass('active')) { //如果该商品被选中
+						var num = parseInt($(this).find(".mui-input-numbox").val()) - 0; //得到商品的数量
+						var price = parseFloat($(this).find(".one_price").text()) - 0; //得到商品的单价
+						var total = price * num; //计算单个商品的总价
+						allprice += total; //计算该店铺的总价
+					}
+				});
+
+				$("#AllTotal").text(allprice.toFixed(2)); //输出全部总价
+			}
+
+			$('#guanli').on('tap', function() {
+
+				if($(this).html() == '管理') {
+					$(this).html('完成');
+					$('.sopping_check').hide();
+					$('.shop_dele').fadeIn();
+				} else {
+					$(this).html('管理');
+					$('.sopping_check').fadeIn();
+					$('.shop_dele').hide();
+				}
+			})
+		});
+	</script>
+
+</html>
